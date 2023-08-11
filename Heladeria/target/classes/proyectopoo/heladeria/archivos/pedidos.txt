@@ -1,0 +1,12 @@
+Tomagochito, 100
+nahinespinoza, 200
+guillermomendoza, 300
+Tomagochito, 101
+nahinespinoza, 201
+guillermomendoza, 301
+Tomagochito, 102
+nahinespinoza, 202
+guillermomendoza, 302
+Tomagochito, 103
+nahinespinoza, 203
+guillermomendoza, 303

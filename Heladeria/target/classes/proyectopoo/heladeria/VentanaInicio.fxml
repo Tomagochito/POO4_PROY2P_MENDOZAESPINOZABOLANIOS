@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane fx:id="nodoStackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" stylesheets="@archivos/estilos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaInicioController">
+   <children>
+      <ImageView fx:id="nodoImageView" fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox fx:id="nodoHbox" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox fx:id="nodoVbox" alignment="CENTER" prefHeight="420.0" prefWidth="387.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="287.0">
+                           <children>
+                              <Label fx:id="nombreHeladeria" styleClass="labelTituloGrande" text="Heladeria" />
+                              <Label fx:id="iceCream" styleClass="labelTituloMediano" text="Ice Cream" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="115.0">
+                           <children>
+                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequeño" text="Usuario:" />
+                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequeño" text="Contraseña:" />
+                           </children>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefHeight="100.0" prefWidth="157.0" spacing="10.0">
+                           <children>
+                              <TextField fx:id="usuarioTextField" />
+                              <TextField fx:id="contraseñaTextField" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="iniciarSesionBoton" mnemonicParsing="false" onAction="#validarUsuario" styleClass="botonEstilo" text="Iniciar Sesión" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

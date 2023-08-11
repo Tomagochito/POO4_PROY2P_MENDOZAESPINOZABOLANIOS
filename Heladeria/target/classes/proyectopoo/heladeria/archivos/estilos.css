@@ -1,0 +1,28 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.botonEstilo {
+    -fx-font-size: 15px; /* Tamaño de fuente */
+    -fx-background-color: #00A693;
+    -fx-text-fill: black ;
+    
+}
+
+.labelTituloGrande{
+    -fx-font-size: 30px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
+
+.labelTituloMediano{
+    -fx-font-size: 22px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
+
+.labelTituloPequeño{
+    -fx-font-size: 18px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
