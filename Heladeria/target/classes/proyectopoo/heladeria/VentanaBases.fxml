@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
    <children>
-      <HBox fx:id="nodoHbox31" prefHeight="60.0" prefWidth="822.0" style="-fx-background-color: #87CEEB;">
+      <HBox fx:id="nodoHbox31" prefHeight="82.0" prefWidth="822.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fx:id="nodoImageView31" fitHeight="60.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
+            <Canvas fx:id="nodoCanvas" height="82.0" width="822.0" />
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #87CEEB;">
+      <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: white;">
          <children>
             <Label prefHeight="30.0" prefWidth="266.0" text="Paso 1: Escoge tus bases">
                <font>
@@ -24,7 +24,7 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox33" prefHeight="227.0" prefWidth="822.0" style="-fx-background-color: #87CEEB;">
+      <HBox fx:id="nodoHbox33" prefHeight="241.0" prefWidth="822.0" style="-fx-background-color: #C9A9C9;">
          <children>
             <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
                <children>
@@ -55,7 +55,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #87CEEB;">
+      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #C9A9C9;">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="411.0">
                <children>
