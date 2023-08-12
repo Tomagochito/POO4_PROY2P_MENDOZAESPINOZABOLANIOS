@@ -5,6 +5,9 @@
 package Modelo;
 
 import static Modelo.Cliente.clientes;
+import static Modelo.Base.bases;
+import static Modelo.Sabor.sabores;
+import static Modelo.Topping.toppings;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,8 +16,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import javafx.concurrent.Task;
-import proyectopoo.heladeria.App;
 
 /**
  *
@@ -26,13 +27,10 @@ public class ManejoArchivos {
         
     
     public static ArrayList<String> leerArchivoTexto(String nombre_archivo){
-
         ArrayList<String> informacion = new ArrayList<>();
-
         try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaArchivos + nombre_archivo)) ) ){
             String datos = br.readLine();
             while(datos!=null){
- 
                 informacion.add(datos);
                 datos=br.readLine();
             }
@@ -48,9 +46,6 @@ public class ManejoArchivos {
        return informacion;
     }//cierre del metodo
     
-    
-    
-    
        
     public static ArrayList<Cliente> listaClientes(){
         ArrayList<String> clientestxt = ManejoArchivos.leerArchivoTexto("clientes.txt");
@@ -61,7 +56,40 @@ public class ManejoArchivos {
          }
          return clientes;
     }
+
+    public static ArrayList<Base> listaBases(){
+        ArrayList<String> basestxt = ManejoArchivos.leerArchivoTexto("bases.txt");
+         bases=new ArrayList<>();
+         for (String base : basestxt) {
+            String[] c = base.split(",");
+            bases.add(new Base ( c[0], Double.parseDouble( c[1]) ) );
+         }
+         return bases;
+    }
     
+    
+    public static ArrayList<Sabor> listaSabores(){
+        ArrayList<String> saborestxt = ManejoArchivos.leerArchivoTexto("sabores.txt");
+         sabores=new ArrayList<>();
+         for (String sabor : saborestxt) {
+            String[] c = sabor.split(",");
+            sabores.add(new Sabor ( c[0], Double.parseDouble( c[1]) ) );
+         }
+         return sabores;
+    }
+        
+
+    public static ArrayList<Topping> listaToppings(){
+        ArrayList<String> toppingstxt = ManejoArchivos.leerArchivoTexto("toppings.txt");
+         toppings=new ArrayList<>();
+         for (String topping : toppingstxt) {
+            String[] c = topping.split(",");
+            toppings.add(new Topping ( c[0], Double.parseDouble( c[1]) ) );
+         }
+         return toppings;
+    }
+    
+        
         
         
     public static void escribirArchivoTextoPedido(String nombre_archivo, boolean agregar, String contenido){

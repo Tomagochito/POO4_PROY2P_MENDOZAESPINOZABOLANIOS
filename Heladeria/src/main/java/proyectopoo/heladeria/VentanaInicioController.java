@@ -4,9 +4,12 @@
  */
 package proyectopoo.heladeria;
 
+import Modelo.Base;
 import Modelo.Cliente;
 import Modelo.IncompleteStageException;
 import Modelo.ManejoArchivos;
+import Modelo.Sabor;
+import Modelo.Topping;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -43,7 +46,9 @@ public class VentanaInicioController implements Initializable {
     Boolean acceso=false;
     public static String usuarioVentana1 ;
     private ArrayList<Cliente> clientesV1;
-    
+    public ArrayList<Base> bases;
+    public ArrayList<Sabor> sabores;
+    public ArrayList<Topping> toppings;
     @FXML
     private StackPane nodoStackPane;
     @FXML
@@ -63,12 +68,63 @@ public class VentanaInicioController implements Initializable {
     @FXML
     private Button iniciarSesionBoton;
         
+
+    /**
+     * Metodo que inicia la ventana
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        try(FileInputStream fis = new FileInputStream (ManejoArchivos.rutaArchivos+"heladosVentanaInicio.png") ) {
+            Image i = new Image(fis);
+            nodoImageView.setImage(i);
+            
+            // esta tarea se ejecuta al momento de iniciar la aplicacion, para que el programa
+            //sea sostenible y no lea el archivo de clientes apenas el usuario quiera iniciar sesion,
+            //sino que ya este cargado, pues es un proceso que puede demorar
+            
+            Task<Void> cargaArchivoTask = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                   clientesV1 = ManejoArchivos.listaClientes();
+                    System.out.println("clientes cargados");
+                   bases=ManejoArchivos.listaBases();
+                    System.out.println("bases cargadas");
+                   sabores=ManejoArchivos.listaSabores();
+                    System.out.println("sabores cargados");
+                   toppings=ManejoArchivos.listaToppings();
+                    System.out.println("toppings cargados");
+                   return null;
+               }
+            };
+
+            cargaArchivoTask.setOnSucceeded(event -> {
+                System.out.println("Archivos cargados en segundo plano");
+            });
+
+            cargaArchivoTask.setOnFailed(event -> {
+                System.out.println("Error al cargar el archivo en segundo plano");
+            });
+
+            Thread thread = new Thread(cargaArchivoTask);
+            thread.setDaemon(true); // Si deseas que el hilo se detenga cuando se cierre la aplicación
+            thread.start();
+
+        }
+
+        catch(Exception e){
+            System.out.println("Proceso fallido");
+           }
+        
+
+       }    
+    
     /**
      * Metodo que valida el usuario para conceder acceso a la siguiente ventana
      */
 
     @FXML
-private void validarUsuario(ActionEvent event) throws IOException {
+    private void validarUsuario(ActionEvent event) throws IOException {
     String us = usuarioTextField.getText();
     String con = contraseñaTextField.getText();
          if (us.isEmpty() || con.isEmpty()) {
@@ -146,50 +202,7 @@ private void validarUsuario(ActionEvent event) throws IOException {
     }
 }
     
-
-    /**
-     * Metodo que inicia la ventana
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-        try(FileInputStream fis = new FileInputStream (ManejoArchivos.rutaArchivos+"heladosVentanaInicio.png") ) {
-            Image i = new Image(fis);
-            nodoImageView.setImage(i);
-            
-            // esta tarea se ejecuta al momento de iniciar la aplicacion, para que el programa
-            //sea sostenible y no lea el archivo de clientes apenas el usuario quiera iniciar sesion,
-            //sino que ya este cargado, pues es un proceso que puede demorar
-            
-            Task<Void> cargaArchivoTask = new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                   clientesV1 = ManejoArchivos.listaClientes();
-                   return null;
-               }
-            };
-
-            cargaArchivoTask.setOnSucceeded(event -> {
-                System.out.println("Archivo cargado en segundo plano");
-            });
-
-            cargaArchivoTask.setOnFailed(event -> {
-                System.out.println("Error al cargar el archivo en segundo plano");
-            });
-
-            Thread thread = new Thread(cargaArchivoTask);
-            thread.setDaemon(true); // Si deseas que el hilo se detenga cuando se cierre la aplicación
-            thread.start();
-
-        }
-
-        catch(Exception e){
-            System.out.println("Proceso fallido");
-           }
-        
-
-       }    
-    
+ 
         
     
     

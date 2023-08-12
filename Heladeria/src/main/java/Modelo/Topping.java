@@ -4,11 +4,14 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
  */
 public class Topping {
+    public static ArrayList<Topping> toppings;
     private String nombreTopping;
     private double precioTopping;
 

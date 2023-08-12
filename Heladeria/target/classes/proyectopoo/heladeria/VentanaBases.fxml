@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
+   <children>
+      <HBox fx:id="nodoHbox31" prefHeight="60.0" prefWidth="822.0" style="-fx-background-color: #87CEEB;">
+         <children>
+            <ImageView fx:id="nodoImageView31" fitHeight="60.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </HBox>
+      <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #87CEEB;">
+         <children>
+            <Label prefHeight="30.0" prefWidth="266.0" text="Paso 1: Escoge tus bases">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="nodoHbox33" prefHeight="227.0" prefWidth="822.0" style="-fx-background-color: #87CEEB;">
+         <children>
+            <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+               <children>
+                  <Button fx:id="nodoBoton331" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase1" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Label fx:id="nodoLabelprecio1" text="Label" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="nodoVbox332" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+               <children>
+                  <Button fx:id="nodoBoton332" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase2" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Label fx:id="nodoLabelprecio2" text="Label" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="nodoVbox333" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+               <children>
+                  <Button fx:id="nodoBoton333" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase3" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Label fx:id="nodoLabelprecio3" text="Label" />
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #87CEEB;">
+         <children>
+            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="411.0">
+               <children>
+                  <Label fx:id="nodoLabeltotalAcumulandose" text="Label" />
+               </children>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="411.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="85.0" text="Continuar" />
+               </children>
+               <padding>
+                  <Insets right="60.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

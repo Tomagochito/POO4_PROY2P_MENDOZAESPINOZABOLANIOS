@@ -4,11 +4,15 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
  */
 public class Base implements Comparable<Base> {
+    public static ArrayList<Base> bases;
+    
     private String nombreBase;
     private double precioBase; 
 

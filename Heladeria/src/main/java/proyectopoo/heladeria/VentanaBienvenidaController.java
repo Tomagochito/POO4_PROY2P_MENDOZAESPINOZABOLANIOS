@@ -6,6 +6,7 @@ package proyectopoo.heladeria;
 
 import Modelo.ManejoArchivos;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -65,7 +66,8 @@ public class VentanaBienvenidaController implements Initializable {
     }
 
     @FXML
-    private void agregarBase(ActionEvent event) {
+    private void agregarBase(ActionEvent event) throws IOException{
+        App.setRoot("VentanaBases");
     }
     
 }

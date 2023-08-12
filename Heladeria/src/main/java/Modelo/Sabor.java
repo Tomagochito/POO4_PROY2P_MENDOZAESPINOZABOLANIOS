@@ -4,11 +4,14 @@
  */
 package Modelo;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author tomas
  */
 public class Sabor {
+    public static ArrayList<Sabor> sabores;
     private String nombreSabor;
     private double precioSabor;
 
