@@ -26,3 +26,8 @@
     -fx-text-fill: black;
     -fx-font-family:"Georgia";
 }
+.botonEstiloVerde {
+    -fx-font-size: 15px; /* Tamaño de fuente */
+    -fx-background-color: pink; /* Cambiar el fondo a verde */
+    -fx-text-fill: black ;
+}

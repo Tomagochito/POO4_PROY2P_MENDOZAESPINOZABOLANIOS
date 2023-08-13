@@ -9,6 +9,7 @@ proyectopoo\heladeria\VentanaInicioController.class
 Modelo\Base.class
 proyectopoo\heladeria\VentanaPedidosActualizadosController.class
 proyectopoo\heladeria\VentanaInicioController$2.class
+proyectopoo\heladeria\VentanaSaboresController.class
 proyectopoo\heladeria\VentanaPedidosActualizadosController$1.class
 Modelo\Pedido.class
 Modelo\Topping.class

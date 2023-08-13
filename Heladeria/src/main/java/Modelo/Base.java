@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Base implements Comparable<Base> {
     public static ArrayList<Base> bases;
+    public static ArrayList<Base> basesEscogidas;
     
     private String nombreBase;
     private double precioBase; 
@@ -44,5 +45,16 @@ public class Base implements Comparable<Base> {
         return this.getNombreBase().compareTo(b.getNombreBase());
     }
     
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Base base = (Base) obj;
+        return this.getNombreBase().equalsIgnoreCase(base.getNombreBase());
+    }
+
 }

@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
+<VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" stylesheets="@archivos/estilos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
    <children>
-      <HBox fx:id="nodoHbox31" prefHeight="82.0" prefWidth="822.0" style="-fx-background-color: white;">
+      <HBox fx:id="nodoHbox31" prefHeight="82.0" prefWidth="822.0" style="-fx-background-color: #FFFFCC;">
          <children>
             <Canvas fx:id="nodoCanvas" height="82.0" width="822.0" />
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #E3C1E3;">
          <children>
             <Label prefHeight="30.0" prefWidth="266.0" text="Paso 1: Escoge tus bases">
                <font>
@@ -24,29 +24,29 @@
             </Label>
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox33" prefHeight="241.0" prefWidth="822.0" style="-fx-background-color: #C9A9C9;">
+      <HBox fx:id="nodoHbox33" prefHeight="241.0" prefWidth="822.0" style="-fx-background-color: #E3C1E3;">
          <children>
-            <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+            <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton331" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase1" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Button fx:id="nodoBoton331" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor1" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
                   <Label fx:id="nodoLabelprecio1" text="Label" />
                </children>
                <padding>
                   <Insets top="20.0" />
                </padding>
             </VBox>
-            <VBox fx:id="nodoVbox332" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+            <VBox fx:id="nodoVbox332" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton332" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase2" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Button fx:id="nodoBoton332" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor2" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
                   <Label fx:id="nodoLabelprecio2" text="Label" />
                </children>
                <padding>
                   <Insets top="20.0" />
                </padding>
             </VBox>
-            <VBox fx:id="nodoVbox333" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0">
+            <VBox fx:id="nodoVbox333" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton333" graphicTextGap="10.0" mnemonicParsing="false" onAction="#setBase3" prefHeight="111.0" prefWidth="137.0" text="Button" />
+                  <Button fx:id="nodoBoton333" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor3" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
                   <Label fx:id="nodoLabelprecio3" text="Label" />
                </children>
                <padding>
@@ -55,7 +55,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #C9A9C9;">
+      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #E3C1E3;">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="411.0">
                <children>
@@ -67,7 +67,7 @@
             </VBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="411.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="28.0" prefWidth="85.0" text="Continuar" />
+                  <Button fx:id="botonContinuar" mnemonicParsing="false" onAction="#continuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstilo" text="Continuar" />
                </children>
                <padding>
                   <Insets right="60.0" />
