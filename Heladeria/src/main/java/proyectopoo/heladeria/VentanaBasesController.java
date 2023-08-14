@@ -7,7 +7,10 @@ package proyectopoo.heladeria;
 import Modelo.Base;
 import static Modelo.Base.bases;
 import static Modelo.Base.basesEscogidas;
+import Modelo.ManejoArchivos;
 import Modelo.Pedido;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
@@ -23,8 +26,14 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.ResourceBundle;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.StackPane;
 
 /**
  * FXML Controller class
@@ -82,21 +91,20 @@ public class VentanaBasesController implements Initializable {
         basesEscogidas=new ArrayList<>();
         GraphicsContext gc = nodoCanvas.getGraphicsContext2D();
         dibujarHeladoDerretido(gc);
-        nodoLabeltotalAcumulandose.setText("0.0");
+        nodoLabeltotalAcumulandose.setText("0.00");
         Collections.sort(bases);
 
+        
         // aqui he hecho este if para lo normal, es decir, para las 3 bases por defecto;
         //si se agregan mas bases deben crearse nuevos 
         //contenedores , botones, labels, e incluso la imagen de la base, de manera dinamica
+     
+       
         if(bases.size()<4){
-            nodoBoton331.setText( /*capitalizar*/ ( bases.get(0).getNombreBase() ) );
-            nodoLabelprecio1.setText(  Double.toString ( bases.get(0).getPrecioBase() )  );
-
-            nodoBoton332.setText( /*capitalizar*/ (bases.get(1).getNombreBase() ) );
-            nodoLabelprecio2.setText(  Double.toString ( bases.get(1).getPrecioBase() )  );        
-
-            nodoBoton333.setText( /*capitalizar*/ (bases.get(2).getNombreBase() ) );
-            nodoLabelprecio3.setText(  Double.toString ( bases.get(2).getPrecioBase() )  );
+            insertarDatosBoton_Precio("baseHelado.png",nodoBoton331,nodoLabelprecio1,0);
+            insertarDatosBoton_Precio("baseVegano.png",nodoBoton332,nodoLabelprecio2,1);
+            insertarDatosBoton_Precio("baseYogurt.png",nodoBoton333,nodoLabelprecio3,2);
+  
         }
         // completar mas tarde xd
         else{}
@@ -109,8 +117,8 @@ public class VentanaBasesController implements Initializable {
       String nombreBase = boton.getText();
 
       if (esVerde(boton)) {
-          boton.getStyleClass().remove("botonEstiloVerde");
-          boton.getStyleClass().add("botonEstilo");
+          boton.getStyleClass().remove("botonEstilo");
+          boton.getStyleClass().add("botonEstiloVB");
           
           basesEscogidas.removeIf(base -> base.getNombreBase().equals(nombreBase));
           for (Base base : bases) {
@@ -121,8 +129,8 @@ public class VentanaBasesController implements Initializable {
               }
       } else {
           if (basesEscogidas.size() < maxBasesSeleccionadas) {
-              boton.getStyleClass().remove("botonEstilo");
-              boton.getStyleClass().add("botonEstiloVerde");
+              boton.getStyleClass().remove("botonEstiloVB");
+              boton.getStyleClass().add("botonEstilo");
               
 
               for (Base base : bases) {
@@ -145,7 +153,7 @@ public class VentanaBasesController implements Initializable {
 
     
     private boolean esVerde(Button bt){
-        return bt.getStyleClass().contains("botonEstiloVerde") ;
+        return bt.getStyleClass().contains("botonEstilo") ;
     }
     
     
@@ -153,14 +161,14 @@ public class VentanaBasesController implements Initializable {
         double total=Double.parseDouble( nodoLabeltotalAcumulandose.getText() );
         double preciobase = base.getPrecioBase();
         double acumulado = total+preciobase;
-        nodoLabeltotalAcumulandose.setText( Double.toString(acumulado) );
+        nodoLabeltotalAcumulandose.setText( Double.toString(acumulado)+ "0" );
     }
     
     private void restar(Base base){
         double total=Double.parseDouble( nodoLabeltotalAcumulandose.getText() );
         double preciobase = base.getPrecioBase();
         double acumulado = total-preciobase;
-        nodoLabeltotalAcumulandose.setText( Double.toString(acumulado) );
+        nodoLabeltotalAcumulandose.setText( Double.toString(acumulado) +"0");
     }
     
     @FXML
@@ -229,7 +237,7 @@ public class VentanaBasesController implements Initializable {
               alert.setHeaderText(null);
               alert.setContentText("Debe escoger minimo una base");
               alert.showAndWait();
-                
+               break; 
             case 1:
                 Pedido p1 = new Pedido(basesEscogidas.get(0),null,null,null,null,null,null);
                 try{
@@ -260,5 +268,34 @@ public class VentanaBasesController implements Initializable {
     
     return primeraLetra + restoDePalabra;
 }
+    
+    
+
+    // dentro del boton se agrega una imagen, esta dificilisimo hacer que la calidad se mantenga,
+    //no se porque luce tan punteada la imagen
+    public void insertarDatosBoton_Precio(String archivo,Button boton,Label l,int indice){
+       try(FileInputStream fis = new FileInputStream (new File(ManejoArchivos.rutaArchivos+archivo) )){    
+       // Cargar imágenes para los botones
+       
+        Image imagen = new Image(fis);
+        
+        // Crear una vista de imagen para ajustarla al tamaño del botón
+        ImageView imagenEnBoton = new ImageView(imagen);
+        imagenEnBoton.setPreserveRatio(true); // Mantener la proporción de la imagen
+        
+        // Ajustar el tamaño de la imagen dentro del botón
+        imagenEnBoton.fitWidthProperty().bind(boton.widthProperty().divide(2.5));
+        imagenEnBoton.fitHeightProperty().bind(boton.heightProperty());
+
+        // Configurar la imagen en el botón
+
+        
+        boton.setGraphic(imagenEnBoton);
+        boton.setText( /*capitalizar*/ ( bases.get(indice).getNombreBase() ) );       
+        boton.setGraphicTextGap(10);
+        l.setText(  Double.toString ( bases.get(indice).getPrecioBase() )+"0" );
+       }catch(IOException ioe){}
+    }
+            
     
 }

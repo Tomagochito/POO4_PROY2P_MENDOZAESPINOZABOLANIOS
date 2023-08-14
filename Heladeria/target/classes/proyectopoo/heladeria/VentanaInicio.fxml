@@ -30,8 +30,8 @@
                      <children>
                         <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="115.0">
                            <children>
-                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequeño" text="Usuario:" />
-                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequeño" text="Contraseña:" />
+                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequenio" text="Usuario:" />
+                              <Label prefHeight="35.0" prefWidth="100.0" styleClass="labelTituloPequenio" text="Contraseña:" />
                            </children>
                            <HBox.margin>
                               <Insets />

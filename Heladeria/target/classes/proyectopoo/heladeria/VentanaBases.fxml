@@ -17,7 +17,7 @@
       </HBox>
       <HBox fx:id="nodoHbox32" alignment="CENTER" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #E3C1E3;">
          <children>
-            <Label prefHeight="30.0" prefWidth="266.0" text="Paso 1: Escoge tus bases">
+            <Label prefHeight="32.0" prefWidth="311.0" styleClass="labelTituloGrandeVB" text="Paso 1: Escoge tus bases">
                <font>
                   <Font size="20.0" />
                </font>
@@ -28,8 +28,8 @@
          <children>
             <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton331" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor1" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
-                  <Label fx:id="nodoLabelprecio1" text="Label" />
+                  <Button fx:id="nodoBoton331" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor1" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstiloVB" text="Button" />
+                  <Label fx:id="nodoLabelprecio1" styleClass="labelTituloPequenioVB" text="Label" />
                </children>
                <padding>
                   <Insets top="20.0" />
@@ -37,8 +37,8 @@
             </VBox>
             <VBox fx:id="nodoVbox332" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton332" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor2" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
-                  <Label fx:id="nodoLabelprecio2" text="Label" />
+                  <Button fx:id="nodoBoton332" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor2" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstiloVB" text="Button" />
+                  <Label fx:id="nodoLabelprecio2" styleClass="labelTituloPequenioVB" text="Label" />
                </children>
                <padding>
                   <Insets top="20.0" />
@@ -46,8 +46,8 @@
             </VBox>
             <VBox fx:id="nodoVbox333" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                <children>
-                  <Button fx:id="nodoBoton333" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor3" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstilo" text="Button" />
-                  <Label fx:id="nodoLabelprecio3" text="Label" />
+                  <Button fx:id="nodoBoton333" graphicTextGap="10.0" mnemonicParsing="false" onAction="#cambiarColor3" prefHeight="111.0" prefWidth="137.0" styleClass="botonEstiloVB" text="Button" />
+                  <Label fx:id="nodoLabelprecio3" styleClass="labelTituloPequenioVB" text="Label" />
                </children>
                <padding>
                   <Insets top="20.0" />
@@ -57,15 +57,22 @@
       </HBox>
       <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #E3C1E3;">
          <children>
-            <VBox alignment="CENTER_LEFT" prefHeight="200.0" prefWidth="411.0">
-               <children>
-                  <Label fx:id="nodoLabeltotalAcumulandose" text="Label" />
-               </children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="411.0" spacing="12.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <padding>
                   <Insets left="60.0" />
                </padding>
-            </VBox>
-            <VBox alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="411.0">
+               <children>
+                  <Label styleClass="labelTituloMedianoVB" text="Valor a pagar:" />
+                  <Label fx:id="nodoLabeltotalAcumulandose" prefHeight="43.0" prefWidth="71.0"  text="Label" styleClass="labelTituloPequenioVB">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin></Label>
+               </children>
+            </HBox>
+            <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="411.0">
                <children>
                   <Button fx:id="botonContinuar" mnemonicParsing="false" onAction="#continuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstilo" text="Continuar" />
                </children>
