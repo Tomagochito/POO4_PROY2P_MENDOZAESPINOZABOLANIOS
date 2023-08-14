@@ -77,7 +77,7 @@ public class VentanaBasesController implements Initializable {
     
  
     int count = 0;
-    static final int maxBasesSeleccionadas=2;
+    static final int maxBasesSeleccionadas=1;
     @FXML
     private Button botonContinuar;
     /**
@@ -144,7 +144,7 @@ public class VentanaBasesController implements Initializable {
               Alert alert = new Alert(Alert.AlertType.ERROR);
               alert.setTitle("Número de bases sobrepasadas");
               alert.setHeaderText(null);
-              alert.setContentText("Solo puede seleccionar un máximo de dos bases");
+              alert.setContentText("Solo puede seleccionar un máximo de una base");
               alert.showAndWait();
           }
       }
@@ -235,25 +235,17 @@ public class VentanaBasesController implements Initializable {
               Alert alert = new Alert(Alert.AlertType.ERROR);
               alert.setTitle("Número de bases faltantes");
               alert.setHeaderText(null);
-              alert.setContentText("Debe escoger minimo una base");
+              alert.setContentText("Debe escoger una base");
               alert.showAndWait();
                break; 
             case 1:
-                Pedido p1 = new Pedido(basesEscogidas.get(0),null,null,null,null,null,null);
+                Pedido p1 = new Pedido(basesEscogidas.get(0),null,null,null,null,null);
                 try{
                 App.setRoot("VentanaSabores");
                 }
                 catch(IOException ioe){}
                 break;
-            case 2:
-                Pedido p2 = new Pedido(basesEscogidas.get(0),basesEscogidas.get(1),null,null,null,null,null);
-                try{
-                App.setRoot("VentanaSabores");
-                }
-                catch(IOException ioe){}
-                break;
-            
-        
+
         
         }
     }

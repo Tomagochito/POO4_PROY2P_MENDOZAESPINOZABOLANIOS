@@ -19,7 +19,6 @@ import java.io.Serializable;
 public class Pedido implements Serializable,Pagable{
     
     Base base1;
-    Base base2;
     Sabor sabor1;
     Sabor sabor2;
     Topping topping1;
@@ -28,9 +27,8 @@ public class Pedido implements Serializable,Pagable{
     int n=1;
     
     
-    public Pedido(Base base1, Base base2, Sabor sabor1, Sabor sabor2, Topping topping1, Topping topping2, Topping topping3) {
-        this.base1 = base1;
-        this.base2 = base2; 
+    public Pedido(Base base1, Sabor sabor1, Sabor sabor2, Topping topping1, Topping topping2, Topping topping3) {
+        this.base1 = base1; 
         this.sabor1 = sabor1;
         this.sabor2 = sabor2;
         this.topping1 = topping1;
@@ -44,14 +42,6 @@ public class Pedido implements Serializable,Pagable{
 
     public void setBase1(Base base1) {
         this.base1 = base1;
-    }
-
-    public Base getBase2() {
-        return base2;
-    }
-
-    public void setBase2(Base base2) {
-        this.base2 = base2;
     }
 
     public Sabor getSabor1() {

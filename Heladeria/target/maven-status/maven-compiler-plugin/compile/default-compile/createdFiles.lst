@@ -1,5 +1,4 @@
 Modelo\ManejoArchivos.class
-proyectopoo\heladeria\VentanaBasesController.class
 Modelo\TipoPago.class
 Modelo\Sabor.class
 Modelo\IncompleteStageException.class
@@ -11,7 +10,6 @@ proyectopoo\heladeria\VentanaPedidosActualizadosController.class
 proyectopoo\heladeria\VentanaInicioController$2.class
 proyectopoo\heladeria\VentanaSaboresController.class
 proyectopoo\heladeria\VentanaPedidosActualizadosController$1.class
-Modelo\Pedido.class
 Modelo\Topping.class
 proyectopoo\heladeria\App.class
 Modelo\Pagable.class
