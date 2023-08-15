@@ -104,10 +104,15 @@ public class ManejoArchivos {
             System.out.println("Ocurrio una excepcion de tipo IOException");
         }//se cierra el catch
     }// se cierra el metodo
-    
-    
-    
-    
 
+    public static String capitalizar(String texto) {
+    if (texto == null || texto.isEmpty()) {
+        return texto;
+    }   
+    String primeraLetra = texto.substring(0, 1).toUpperCase();
+    String restoDePalabra = texto.substring(1).toLowerCase();
+    
+    return primeraLetra + restoDePalabra;
+}
         
 }
