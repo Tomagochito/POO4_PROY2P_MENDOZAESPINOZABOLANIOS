@@ -7,9 +7,14 @@
     -fx-background-color: #00A693;
     -fx-text-fill: black ;   
 }
+.botonEstiloVerde {
+    -fx-font-size: 16px; /* Tamaño de fuente */
+    -fx-background-color: #00A693;
+    -fx-text-fill: black ;   
+}
 
-.botonEstiloVB {
-    -fx-font-size: 15px; /* Tamaño de fuente */
+.botonEstiloAmarillo {
+    -fx-font-size: 16px; /* Tamaño de fuente */
     -fx-background-color: #F7FF88;
     -fx-text-fill: black ;    
 }

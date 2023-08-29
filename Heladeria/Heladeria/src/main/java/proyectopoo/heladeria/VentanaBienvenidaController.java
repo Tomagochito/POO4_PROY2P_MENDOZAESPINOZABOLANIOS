@@ -68,7 +68,10 @@ public class VentanaBienvenidaController implements Initializable {
 
     @FXML
     private void agregarBase(ActionEvent event) throws IOException{
+        try{
         App.setRoot("VentanaBases");
+        }
+        catch(IOException ioe){}
     }
     
 }
