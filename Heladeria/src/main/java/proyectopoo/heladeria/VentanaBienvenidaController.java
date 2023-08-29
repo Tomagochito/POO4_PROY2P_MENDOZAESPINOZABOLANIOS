@@ -62,7 +62,8 @@ public class VentanaBienvenidaController implements Initializable {
 
     
     @FXML
-    private void mostrarLocales(ActionEvent event) {
+    private void mostrarLocales(ActionEvent event) throws IOException {
+        App.setRoot("VentanaUbicacion");
     }
 
     @FXML
