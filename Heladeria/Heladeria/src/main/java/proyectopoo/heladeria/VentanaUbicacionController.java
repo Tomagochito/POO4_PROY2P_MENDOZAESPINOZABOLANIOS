@@ -32,28 +32,15 @@ public class VentanaUbicacionController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println("algo se ejecuta porlomenos");
-        try {
-            App.setRoot("VentanaUbicacion.fxml");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
         CargarFondo();
     }
 
     public void CargarFondo() {
-        
         ImageView ima = null;
-        Label label = new Label("Hola");
-            root1.getChildren().add(label);
-
         try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaArchivos + "baseYogurt.png")) {
-            System.out.println("Se deberia ejecutar algo");
-
             Image imgmapa = new Image(input);
             ima = new ImageView(imgmapa);
             root1.getChildren().add(ima);
-
             iv.setImage(imgmapa);
         } catch (FileNotFoundException a) {
             a.printStackTrace();
