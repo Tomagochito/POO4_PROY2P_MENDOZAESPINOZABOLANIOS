@@ -25,6 +25,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -58,13 +59,21 @@ public class VentanaSaboresController implements Initializable {
     private HBox HBox2Sabores;
     @FXML
     private HBox HBox3Sabores;
+    @FXML
+    private Label totalsabores;
+    double totalpago;
     ArrayList<Sabor> listasabores = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
         cargarsabores();
         cargarcombo();
-
+        cbsabor1.setOnAction((t) -> {cargarPrecio(cbsabor1.getValue());
+        });
+        cbsabor2.setOnAction((t) -> {cargarPrecio(cbsabor2.getValue());
+        });
+        
     }
 
     public void cargarsabores() {
@@ -97,9 +106,19 @@ public class VentanaSaboresController implements Initializable {
 
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
-        for (Sabor sabor : listaordenada) {
+        cbsabor1.getItems().setAll(listaordenada);
+        cbsabor2.getItems().setAll(listaordenada);
+        
+        /**for (Sabor sabor : listaordenada) { El for esta de mas xd --Att: Guillermo
             cbsabor1.getItems().setAll(sabor);
             cbsabor2.getItems().setAll(sabor);
+        }**/
+    }
+    
+    public void cargarPrecio(Sabor s){ //No funciona correctamente
+        if (s!=null){
+            totalpago+=s.getPrecioSabor();
+            totalsabores.setText(String.valueOf(totalpago));
         }
     }
 

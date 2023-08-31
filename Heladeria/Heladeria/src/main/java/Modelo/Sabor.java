@@ -37,6 +37,9 @@ public class Sabor {
         this.precioSabor = precioSabor;
     }
     
-    
+    @Override
+    public String toString(){
+        return this.getNombreSabor()+" - "+ String.valueOf(this.precioSabor);
+    } 
     
 }
