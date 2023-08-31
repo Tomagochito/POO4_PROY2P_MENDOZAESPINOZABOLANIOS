@@ -66,13 +66,8 @@ public class VentanaSaboresController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         cargarsabores();
         cargarcombo();
-        cbsabor1.setOnAction((t) -> {cargarPrecio(cbsabor1.getValue());
-        });
-        cbsabor2.setOnAction((t) -> {cargarPrecio(cbsabor2.getValue());
-        });
         
     }
 
@@ -107,16 +102,9 @@ public class VentanaSaboresController implements Initializable {
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
         
-        /**for (Sabor sabor : listaordenada) { El for esta de mas xd --Att: Guillermo
+        for (Sabor sabor : listaordenada) {
             cbsabor1.getItems().setAll(sabor);
             cbsabor2.getItems().setAll(sabor);
-        }**/
-    }
-    
-    public void cargarPrecio(Sabor s){ //No funciona correctamente
-        if (s!=null){
-            totalpago+=s.getPrecioSabor();
-            totalsabores.setText(String.valueOf(totalpago));
         }
     }
 
