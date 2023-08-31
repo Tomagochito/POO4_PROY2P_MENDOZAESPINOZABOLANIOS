@@ -79,7 +79,7 @@ public class VentanaBasesController implements Initializable {
     
     Base baseElegida;
     boolean amarillo_a_verde;
-    
+
      /**
      * Initializes the controller class.
      **/
@@ -136,11 +136,20 @@ public class VentanaBasesController implements Initializable {
             }
             else{
                 System.out.println("La base escogida antes de pasar a la otra ventana fue: "+baseElegida.getNombreBase());
-                Pedido p1 = new Pedido(baseElegida,null,null,null,null,null);
+                //----------Prueba
+                App app = new App();
+                Pedido pedido1 = app.getPedidoactual();
+                pedido1.setBase1(baseElegida);
+                
+                
+                
+                //----------
                 try{
                 App.setRoot("VentanaSabores");
                 }
-                catch(IOException ioe){}         
+                catch(IOException ioe){
+                    System.out.println("Ocurrio un error al intentar cambiar a la escena de sabores");
+                }         
             }        
         }
         catch(IncompleteStageException ise){

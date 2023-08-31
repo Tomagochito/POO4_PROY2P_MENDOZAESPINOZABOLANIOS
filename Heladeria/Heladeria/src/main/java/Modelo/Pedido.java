@@ -4,31 +4,29 @@
  */
 package Modelo;
 
-
 import java.io.FileOutputStream;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-
 /**
  *
  * @author tomas
  */
-public class Pedido implements Serializable,Pagable{
-    
+public class Pedido implements Serializable, Pagable {
+
+
     Base base1;
     Sabor sabor1;
     Sabor sabor2;
     Topping topping1;
     Topping topping2;
     Topping topping3;
-    int n=1;
-    
-    
+    int n = 1;
+
     public Pedido(Base base1, Sabor sabor1, Sabor sabor2, Topping topping1, Topping topping2, Topping topping3) {
-        this.base1 = base1; 
+        this.base1 = base1;
         this.sabor1 = sabor1;
         this.sabor2 = sabor2;
         this.topping1 = topping1;
@@ -83,14 +81,12 @@ public class Pedido implements Serializable,Pagable{
     public void setTopping3(Topping topping3) {
         this.topping3 = topping3;
     }
-    
+
     @Override
-    public int generarTransaccion(){
-        return this.n+1;
+    public int generarTransaccion() {
+        return this.n + 1;
     }
 
-
-    
     public static void serializarPedido(Pedido objeto, String nombreArchivo) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ManejoArchivos.rutaArchivos + nombreArchivo))) {
             oos.writeObject(objeto);
@@ -99,8 +95,5 @@ public class Pedido implements Serializable,Pagable{
             ioe.printStackTrace();
         }
     }// se cierra el metodo
-    
-    
 
-    
 }

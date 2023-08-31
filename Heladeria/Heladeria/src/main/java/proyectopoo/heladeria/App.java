@@ -1,6 +1,7 @@
 package proyectopoo.heladeria;
 
 
+import Modelo.Pedido;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,17 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
+
 public class App extends Application {
+        public Pedido pedidoactual = new Pedido(null, null, null, null, null, null);
+    
+    public Pedido getPedidoactual() {
+        return pedidoactual;
+    }
+
+    public void setPedidoactual(Pedido pedidoactual) {
+        this.pedidoactual = pedidoactual;
+    }
 
     private static Scene scene;
 
