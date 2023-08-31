@@ -97,10 +97,9 @@ public class VentanaSaboresController implements Initializable {
 
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
-        for (Sabor sabor : listaordenada) {
-            cbsabor1.getItems().setAll(sabor);
-            cbsabor2.getItems().setAll(sabor);
-        }
+            cbsabor1.getItems().setAll(listaordenada);
+            cbsabor2.getItems().setAll(listaordenada);
+        
     }
 
     @FXML
@@ -115,9 +114,15 @@ public class VentanaSaboresController implements Initializable {
                 pedido1.setSabor1(cbsabor1.getValue());
                 pedido1.setSabor2(cbsabor2.getValue());
                 //----------
+                try{
+                App.setRoot("VentanaToppings");
+                }
+                catch(IOException ioe){
+                    System.out.println("Ocurrio un error al intentar cambiar a la escena de sabores");
+                }    
             } else {
                 System.out.println("Ningún ComboBox tiene algo seleccionado.");
-                throw new IncompleteStageException("Debe escoger una base");
+                throw new IncompleteStageException("Debe escoger una sabor");
             }
         } catch (IncompleteStageException e) {
             Alert alert = new Alert(Alert.AlertType.ERROR);

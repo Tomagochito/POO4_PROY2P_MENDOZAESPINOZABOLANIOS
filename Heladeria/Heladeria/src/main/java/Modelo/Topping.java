@@ -15,6 +15,11 @@ public class Topping {
     private String nombreTopping;
     private double precioTopping;
 
+    @Override
+    public String toString() {
+        return nombreTopping+" - "+precioTopping;
+    }
+
     public Topping(String nombreTopping, double precioTopping) {
         this.nombreTopping = nombreTopping;
         this.precioTopping = precioTopping;

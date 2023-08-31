@@ -36,6 +36,11 @@ public class Sabor {
     public void setPrecioSabor(double precioSabor) {
         this.precioSabor = precioSabor;
     }
+
+    @Override
+    public String toString() {
+        return nombreSabor;
+    }
     
     
     
