@@ -68,7 +68,8 @@ public class VentanaSaboresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         cargarsabores();
         cargarcombo();
-        
+        cbsabor1.valueProperty().addListener((observable, oldValue, newValue) -> actualizarTotal());
+        cbsabor2.valueProperty().addListener((observable, oldValue, newValue) -> actualizarTotal());
     }
 
     public void cargarsabores() {
@@ -98,45 +99,62 @@ public class VentanaSaboresController implements Initializable {
         });
         return listaOrdenada;
     }
+private void actualizarTotal() {
+        Sabor sabor1 = cbsabor1.getValue();
+        Sabor sabor2 = cbsabor2.getValue();
 
+        totalpago = 0.0;
+        if (sabor1 != null) {
+            totalpago += sabor1.getPrecioSabor();
+        }
+        if (sabor2 != null) {
+            totalpago += sabor2.getPrecioSabor();
+        }
+
+        totalsabores.setText("$ " + totalpago);
+    }
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
         
-        for (Sabor sabor : listaordenada) {
-            cbsabor1.getItems().setAll(sabor);
-            cbsabor2.getItems().setAll(sabor);
-        }
-    }
+            cbsabor1.getItems().setAll(listaordenada);
+            cbsabor2.getItems().setAll(listaordenada);
+            totalsabores.setText("0.00");
+            }
 
     @FXML
-    private void botoncontinuar(ActionEvent event) {
-        try {
-            boolean alMenosUnoSeleccionado = (cbsabor1.getValue() != null || cbsabor2.getValue() != null);
-            if (alMenosUnoSeleccionado) {
-                System.out.println("Al menos un ComboBox tiene algo seleccionado.");
-                //----------Prueba
-                App app = new App();
-                Pedido pedido1 = app.getPedidoactual();
-                pedido1.setSabor1(cbsabor1.getValue());
-                pedido1.setSabor2(cbsabor2.getValue());
-                //----------
-                try{
+private void botoncontinuar(ActionEvent event) {
+    try {
+        boolean alMenosUnoSeleccionado = (cbsabor1.getValue() != null || cbsabor2.getValue() != null);
+        if (alMenosUnoSeleccionado) {
+            // Obtener los sabores seleccionados
+            Sabor sabor1 = cbsabor1.getValue();
+            Sabor sabor2 = cbsabor2.getValue();
+
+           
+
+            // Continuar con la siguiente ventana (si es necesario)
+            App app = new App();
+            Pedido pedido1 = app.getPedidoactual();
+            pedido1.setSabor1(sabor1);
+            pedido1.setSabor2(sabor2);
+
+            try {
                 App.setRoot("VentanaToppings");
-                }
-                catch(IOException ioe){
-                    System.out.println("Ocurrio un error al intentar cambiar a la escena de sabores");
-                }    
-            } else {
-                System.out.println("Ningún ComboBox tiene algo seleccionado.");
-                throw new IncompleteStageException("Debe escoger una sabor");
+            } catch (IOException ioe) {
+                System.out.println("Ocurrió un error al intentar cambiar a la escena de sabores");
             }
-        } catch (IncompleteStageException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText(null);
-            alert.setContentText("Se ha producido un error:\n" + e.getMessage());
-            alert.showAndWait();
+        } else {
+            System.out.println("Ningún ComboBox tiene algo seleccionado.");
+            throw new IncompleteStageException("Debe escoger al menos un sabor");
         }
+    } catch (IncompleteStageException e) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText("Se ha producido un error:\n" + e.getMessage());
+        alert.showAndWait();
     }
+}
+
 
 }
