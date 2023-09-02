@@ -85,7 +85,7 @@ public class VentanaToppingsController implements Initializable {
         }
     }
     @FXML
-    public void botonContinuarToppings(){
+    public void botonContinuar(){
         //Se debe generar pedido y guardar en pedidotxt
         guardarPedido();
        // App.pedidoactual=new Pedido(VentanaBasesController.baseElegida,);

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root_sabores" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" stylesheets="@archivos/estilos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaSaboresController">
+   <children>
+      <HBox fx:id="HBox1Sabores" prefHeight="82.0" prefWidth="822.0" style="-fx-background-color: #FFFFCC;">
+         <children>
+            <Canvas fx:id="CanvasSabores" height="82.0" width="822.0" />
+         </children>
+      </HBox>
+      <HBox fx:id="HBox2Sabores" alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="600.0" style="-fx-background-color: #E3C1E3;">
+         <children>
+            <Label alignment="CENTER" prefHeight="32.0" prefWidth="550.0" styleClass="labelTituloGrandeVB" text="Paso 2: Elige tus sabores ">
+               <font>
+                  <Font size="46.0" />
+               </font>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <HBox fx:id="HBox3Sabores" prefHeight="241.0" prefWidth="822.0" style="-fx-background-color: #E3C1E3;">
+         <children>
+            <VBox fx:id="VBox1Sabores" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
+               <children>
+                  <Label fx:id="nodoLabelprecio1" styleClass="labelTituloPequenioVB" text="Sabor 1" />
+                  <VBox fx:id="VBoxSabor1" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox fx:id="cbsabor1" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+            <VBox fx:id="VBox2Sabores" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
+               <children>
+                  <Label fx:id="nodoLabelprecio2" styleClass="labelTituloPequenioVB" text="Sabor 2" />
+                  <VBox fx:id="VBoxSabor2" alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ComboBox fx:id="cbsabor2" prefWidth="150.0">
+                           <VBox.margin>
+                              <Insets right="15.0" />
+                           </VBox.margin>
+                        </ComboBox>
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets top="20.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox fx:id="nodoHbox34" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="411.0" style="-fx-background-color: #E3C1E3;">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="411.0" spacing="12.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="60.0" />
+               </padding>
+               <children>
+                  <Label styleClass="labelTituloMedianoVB" text="Valor a pagar:" />
+                  <Label fx:id="totalsabores" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="Label">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+            <VBox fx:id="VBox3Sabores" alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="411.0">
+               <children>
+                  <Button fx:id="botonContinuarSabores" mnemonicParsing="false" onAction="#botoncontinuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstiloVerde" text="Continuar" />
+               </children>
+               <padding>
+                  <Insets right="60.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

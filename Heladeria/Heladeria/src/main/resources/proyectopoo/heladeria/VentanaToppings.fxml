@@ -59,7 +59,7 @@
             </HBox>
             <VBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="411.0">
                <children>
-                  <Button fx:id="botonContinuarToppings" mnemonicParsing="false" onAction="#botoncontinuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstiloVerde" text="Continuar" />
+                  <Button fx:id="botonContinuarToppings" mnemonicParsing="false" onAction="#botonContinuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstiloVerde" text="Continuar" />
                </children>
                <padding>
                   <Insets right="60.0" />
