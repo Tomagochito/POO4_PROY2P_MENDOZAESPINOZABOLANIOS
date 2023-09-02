@@ -49,6 +49,7 @@ public class VentanaInicioController implements Initializable {
     public ArrayList<Base> bases;
     public ArrayList<Sabor> sabores;
     public ArrayList<Topping> toppings;
+    public static Cliente clienteActual;
     @FXML
     private StackPane nodoStackPane;
     @FXML
@@ -127,6 +128,7 @@ public class VentanaInicioController implements Initializable {
     private void validarUsuario(ActionEvent event) throws IOException {
     String us = usuarioTextField.getText();
     String con = contraseñaTextField.getText();
+    clienteActual=new Cliente(us,con);
          if (us.isEmpty() || con.isEmpty()) {
             try {
                 throw new IncompleteStageException("Por favor, complete todos los campos.");

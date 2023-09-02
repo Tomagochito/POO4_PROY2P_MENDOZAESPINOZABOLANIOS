@@ -5,11 +5,14 @@
 package proyectopoo.heladeria;
 
 import Modelo.ManejoArchivos;
+import Modelo.Pedido;
 import Modelo.Sabor;
 import Modelo.Topping;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ import javafx.scene.layout.VBox;
  * @author User
  */
 public class VentanaToppingsController implements Initializable {
+        private int numPedido=9999;
         @FXML
         private VBox root_toppings;
         @FXML
@@ -42,7 +46,7 @@ public class VentanaToppingsController implements Initializable {
         private Label totaltoppings;
         @FXML
         private Button botonContinuarToppings;
-                 ArrayList<Topping> listatoppings = new ArrayList<Topping>();
+        ArrayList<Topping> listatoppings = new ArrayList<Topping>();
 
         
     /**
@@ -79,5 +83,26 @@ public class VentanaToppingsController implements Initializable {
             CheckBox chb = new CheckBox(tp.toString());
             VBoxtoppings.getChildren().addAll(chb);         
         }
+    }
+    @FXML
+    public void botonContinuarToppings(){
+        //Se debe generar pedido y guardar en pedidotxt
+        guardarPedido();
+       // App.pedidoactual=new Pedido(VentanaBasesController.baseElegida,);
+        //Pedido.serializarPedido(App.pedidoactual, "pedido"+String.valueOf(numPedido)+".bin");
+    }
+    
+    public void guardarPedido(){
+        numPedido--;
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter("pedido.txt"))){
+            double total=0;
+            String linea=numPedido+","+VentanaInicioController.clienteActual.getUsuario()+","+total+"\n";
+            bf.write(linea);
+        
+        }catch(IOException ioe){
+                System.out.println(ioe.getMessage());
+        
+        }
+        
     }
 }

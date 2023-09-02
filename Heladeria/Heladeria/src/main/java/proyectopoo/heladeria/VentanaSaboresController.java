@@ -63,6 +63,8 @@ public class VentanaSaboresController implements Initializable {
     private Label totalsabores;
     double totalpago;
     ArrayList<Sabor> listasabores = new ArrayList<>();
+    public static Sabor sabor1;
+    public static Sabor sabor2;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,9 +102,8 @@ public class VentanaSaboresController implements Initializable {
         return listaOrdenada;
     }
 private void actualizarTotal() {
-        Sabor sabor1 = cbsabor1.getValue();
-        Sabor sabor2 = cbsabor2.getValue();
-
+        sabor1 = cbsabor1.getValue();
+        sabor2 = cbsabor2.getValue();
         totalpago = 0.0;
         if (sabor1 != null) {
             totalpago += sabor1.getPrecioSabor();
@@ -127,8 +128,8 @@ private void botoncontinuar(ActionEvent event) {
         boolean alMenosUnoSeleccionado = (cbsabor1.getValue() != null || cbsabor2.getValue() != null);
         if (alMenosUnoSeleccionado) {
             // Obtener los sabores seleccionados
-            Sabor sabor1 = cbsabor1.getValue();
-            Sabor sabor2 = cbsabor2.getValue();
+             sabor1 = cbsabor1.getValue();
+             sabor2 = cbsabor2.getValue();
 
            
 

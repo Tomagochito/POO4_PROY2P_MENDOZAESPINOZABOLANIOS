@@ -77,7 +77,7 @@ public class VentanaBasesController implements Initializable {
     @FXML
     private ToggleButton tboton333;
     
-    Base baseElegida;
+    public static Base baseElegida;
     boolean amarillo_a_verde;
 
      /**
