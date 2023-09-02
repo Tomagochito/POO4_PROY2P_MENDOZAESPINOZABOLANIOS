@@ -134,10 +134,8 @@ private void botoncontinuar(ActionEvent event) {
            
 
             // Continuar con la siguiente ventana (si es necesario)
-            App app = new App();
-            Pedido pedido1 = app.getPedidoactual();
-            pedido1.setSabor1(sabor1);
-            pedido1.setSabor2(sabor2);
+            App.pedidoactual.setSabor1(sabor1);
+            App.pedidoactual.setSabor2(sabor2);
 
             try {
                 App.setRoot("VentanaToppings");

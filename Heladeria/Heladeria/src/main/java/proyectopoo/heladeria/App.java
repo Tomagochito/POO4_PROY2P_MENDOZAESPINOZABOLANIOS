@@ -15,15 +15,15 @@ import java.io.IOException;
  */
 
 public class App extends Application {
-        public Pedido pedidoactual = new Pedido(null, null, null, null, null, null);
+        public static Pedido pedidoactual = new Pedido(null, null, null, null, null, null);
     
-    public Pedido getPedidoactual() {
+   /** public Pedido getPedidoactual() {
         return pedidoactual;
     }
 
     public void setPedidoactual(Pedido pedidoactual) {
         this.pedidoactual = pedidoactual;
-    }
+    }**/
 
     private static Scene scene;
 

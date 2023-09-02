@@ -31,7 +31,7 @@ import javafx.scene.layout.VBox;
  * @author User
  */
 public class VentanaToppingsController implements Initializable {
-        private int numPedido=9999;
+        public static int numPedido=9999;
         @FXML
         private VBox root_toppings;
         @FXML
@@ -81,19 +81,24 @@ public class VentanaToppingsController implements Initializable {
         
         for(Topping tp:listatoppings){
             CheckBox chb = new CheckBox(tp.toString());
-            VBoxtoppings.getChildren().addAll(chb);         
+            VBoxtoppings.getChildren().addAll(chb);    
         }
     }
     @FXML
     public void botonContinuar(){
         //Se debe generar pedido y guardar en pedidotxt
-        guardarPedido();
-       // App.pedidoactual=new Pedido(VentanaBasesController.baseElegida,);
+        //guardarPedido();
+       // App.pedidoactual
         //Pedido.serializarPedido(App.pedidoactual, "pedido"+String.valueOf(numPedido)+".bin");
+        try{
+        App.setRoot("Pago");}catch(IOException ioe){
+            System.out.println("No se ha podido cambiar la ventana");
+        }
     }
     
     public void guardarPedido(){
         numPedido--;
+        
         try(BufferedWriter bf=new BufferedWriter(new FileWriter("pedido.txt"))){
             double total=0;
             String linea=numPedido+","+VentanaInicioController.clienteActual.getUsuario()+","+total+"\n";

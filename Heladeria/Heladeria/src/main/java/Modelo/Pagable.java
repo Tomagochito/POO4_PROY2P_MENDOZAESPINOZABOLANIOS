@@ -9,5 +9,5 @@ package Modelo;
  * @author tomas
  */
 public interface Pagable {
-    int generarTransaccion();
+    void generarTransaccion();
 }

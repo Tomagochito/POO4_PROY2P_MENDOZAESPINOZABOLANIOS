@@ -137,9 +137,7 @@ public class VentanaBasesController implements Initializable {
             else{
                 System.out.println("La base escogida antes de pasar a la otra ventana fue: "+baseElegida.getNombreBase());
                 //----------Prueba
-                App app = new App();
-                Pedido pedido1 = app.getPedidoactual();
-                pedido1.setBase1(baseElegida);
+                App.pedidoactual.setBase1(VentanaBasesController.baseElegida);
                 
                 
                 

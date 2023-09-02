@@ -4,11 +4,17 @@
  */
 package Modelo;
 
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import proyectopoo.heladeria.App;
+import proyectopoo.heladeria.VentanaBasesController;
+import proyectopoo.heladeria.VentanaInicioController;
+import proyectopoo.heladeria.VentanaToppingsController;
 
 /**
  *
@@ -23,7 +29,7 @@ public class Pedido implements Serializable, Pagable {
     Topping topping1;
     Topping topping2;
     Topping topping3;
-    int n = 1;
+    int n = 9999;
 
     public Pedido(Base base1, Sabor sabor1, Sabor sabor2, Topping topping1, Topping topping2, Topping topping3) {
         this.base1 = base1;
@@ -83,8 +89,15 @@ public class Pedido implements Serializable, Pagable {
     }
 
     @Override
-    public int generarTransaccion() {
-        return this.n + 1;
+    public void generarTransaccion() {
+        try(BufferedWriter bf= new BufferedWriter(new FileWriter("pagos.txt"))){
+            String line=n+","+VentanaToppingsController.numPedido+","+VentanaInicioController.clienteActual.getUsuario()+",";
+            bf.write(line);
+            n--;
+        }catch(IOException ioe){
+            System.out.println(ioe.getMessage());
+        }
+        
     }
 
     public static void serializarPedido(Pedido objeto, String nombreArchivo) {
