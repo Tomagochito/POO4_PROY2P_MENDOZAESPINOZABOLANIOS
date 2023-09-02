@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 
 public class App extends Application {
-        public static Pedido pedidoactual = new Pedido(null, null, null, null, null, null);
+        public static Pedido pedidoactual = new Pedido(null,null,null);
     
    /** public Pedido getPedidoactual() {
         return pedidoactual;

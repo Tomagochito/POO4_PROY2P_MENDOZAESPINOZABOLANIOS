@@ -11,6 +11,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.ArrayList;
 import proyectopoo.heladeria.App;
 import proyectopoo.heladeria.VentanaBasesController;
 import proyectopoo.heladeria.VentanaInicioController;
@@ -24,22 +25,17 @@ public class Pedido implements Serializable, Pagable {
 
 
     Base base1;
-    Sabor sabor1;
-    Sabor sabor2;
-    Topping topping1;
-    Topping topping2;
-    Topping topping3;
+    ArrayList<Sabor> listasabores;
+    ArrayList<Topping> listatopping;
     int n = 9999;
 
-    public Pedido(Base base1, Sabor sabor1, Sabor sabor2, Topping topping1, Topping topping2, Topping topping3) {
+    public Pedido(Base base1, ArrayList<Sabor> listasabores, ArrayList<Topping> listatopping) {
         this.base1 = base1;
-        this.sabor1 = sabor1;
-        this.sabor2 = sabor2;
-        this.topping1 = topping1;
-        this.topping2 = topping2;
-        this.topping3 = topping3;
+        this.listasabores = listasabores;
+        this.listatopping = listatopping;
     }
 
+    
     public Base getBase1() {
         return base1;
     }
@@ -48,45 +44,31 @@ public class Pedido implements Serializable, Pagable {
         this.base1 = base1;
     }
 
-    public Sabor getSabor1() {
-        return sabor1;
+    public ArrayList<Sabor> getListasabores() {
+        return listasabores;
     }
 
-    public void setSabor1(Sabor sabor1) {
-        this.sabor1 = sabor1;
+    public void setListasabores(ArrayList<Sabor> listasabores) {
+        this.listasabores = listasabores;
     }
 
-    public Sabor getSabor2() {
-        return sabor2;
+    public ArrayList<Topping> getListatopping() {
+        return listatopping;
     }
 
-    public void setSabor2(Sabor sabor2) {
-        this.sabor2 = sabor2;
+    public void setListatopping(ArrayList<Topping> listatopping) {
+        this.listatopping = listatopping;
     }
 
-    public Topping getTopping1() {
-        return topping1;
+    public int getN() {
+        return n;
     }
 
-    public void setTopping1(Topping topping1) {
-        this.topping1 = topping1;
+    public void setN(int n) {
+        this.n = n;
     }
 
-    public Topping getTopping2() {
-        return topping2;
-    }
 
-    public void setTopping2(Topping topping2) {
-        this.topping2 = topping2;
-    }
-
-    public Topping getTopping3() {
-        return topping3;
-    }
-
-    public void setTopping3(Topping topping3) {
-        this.topping3 = topping3;
-    }
 
     @Override
     public void generarTransaccion() {

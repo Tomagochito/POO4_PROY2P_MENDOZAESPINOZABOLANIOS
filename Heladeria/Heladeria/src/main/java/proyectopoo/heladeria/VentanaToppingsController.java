@@ -24,6 +24,8 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import static proyectopoo.heladeria.VentanaSaboresController.sabor1;
+import static proyectopoo.heladeria.VentanaSaboresController.sabor2;
 
 /**
  * FXML Controller class
@@ -47,11 +49,11 @@ public class VentanaToppingsController implements Initializable {
         @FXML
         private Button botonContinuarToppings;
         ArrayList<Topping> listatoppings = new ArrayList<Topping>();
+        ArrayList<Topping> toppingselec = new ArrayList<Topping>();
+            private double totalAmount = 0.0;
 
         
-    /**
-     * Initializes the controller class.
-     */
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -78,12 +80,25 @@ public class VentanaToppingsController implements Initializable {
     }
     
     public void crearcheckbox(){
-        
         for(Topping tp:listatoppings){
             CheckBox chb = new CheckBox(tp.toString());
-            VBoxtoppings.getChildren().addAll(chb);    
+            VBoxtoppings.getChildren().addAll(chb);
+            chb.setOnAction(event ->recuperartoppings(chb,tp));
         }
     }
+    
+    public void recuperartoppings(CheckBox ch,Topping tp) {
+        if (ch.isSelected()) {
+            totalAmount += tp.getPrecioTopping();
+            toppingselec.add(tp);
+        } else {
+            totalAmount -= tp.getPrecioTopping();
+            toppingselec.remove(tp);
+        }
+        totaltoppings.setText("$ " + totalAmount);
+    }
+    
+    
     @FXML
     public void botonContinuar(){
         //Se debe generar pedido y guardar en pedidotxt

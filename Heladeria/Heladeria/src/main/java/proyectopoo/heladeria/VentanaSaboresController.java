@@ -130,12 +130,13 @@ private void botoncontinuar(ActionEvent event) {
             // Obtener los sabores seleccionados
              sabor1 = cbsabor1.getValue();
              sabor2 = cbsabor2.getValue();
-
-           
+             
+           ArrayList<Sabor> selecsabores = new ArrayList<>();
+           selecsabores.add(sabor1);
+           selecsabores.add(sabor2);
 
             // Continuar con la siguiente ventana (si es necesario)
-            App.pedidoactual.setSabor1(sabor1);
-            App.pedidoactual.setSabor2(sabor2);
+            App.pedidoactual.setListasabores(selecsabores);
 
             try {
                 App.setRoot("VentanaToppings");
