@@ -33,12 +33,24 @@ import static proyectopoo.heladeria.VentanaToppingsController.total;
 /**
  * FXML Controller class
  *
- * @author Lenovo
+ * @author Guillermo Mendoza
  */
 public class PagoController implements Initializable {
+    /**
+     * Variable del IVA estatico para que sea posible acceder a ella desde otras  clases dle proyecto
+     */
     public static double IVA;
+    /**
+     * Variable del precio del helado mas el IVA, que es estatica para que sea posible acceder a ella desde otras  clases dle proyecto
+     */
     public static double totalIVA;
+    /**
+     * Variable del Adicional que se aplica a un pago con tarjeta, estatica para que sea posible acceder a ella desde otras  clases dle proyecto
+     */
     public static double AdicionalT;
+    /**
+     * Total de pago con tarjeta del totalIVA mas el Adicional de la tarjeta, estatica para que sea posible acceder a ella desde otras  clases dle proyecto
+     */
     public static double totalTarjeta;
 
     /**
@@ -87,7 +99,11 @@ public class PagoController implements Initializable {
     TextField date=new TextField();
     TextField cv=new TextField();
 
-    
+    /**
+     * 
+     * @param url Localizacion del FXML
+     * @param rb Recursos del controlador
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -108,6 +124,9 @@ public class PagoController implements Initializable {
         rbtarjeta.setOnAction((t) -> {pagoTarjeta();
         });
     }
+    /**
+     * Metodo accionado por el boton confirmar, que pasa a la seguiente ventana de la aplicacion.
+     */
     @FXML
     public void confirmar() {
         
@@ -149,11 +168,20 @@ public class PagoController implements Initializable {
         
         
     }
+    /**
+     * Metodo accionado por el boton cancelar, cierra la aplicacion
+     */
     @FXML
     public void cancelar(){
-    Stage s=(Stage)btncancelar.getScene().getWindow();
-        s.close();
+        try{
+            App.setRoot("VentanaInicio");
+        }catch(IOException ioe){
+            System.out.println("Error al cambiar ventana");
+        }
     };
+    /**
+     * Metodo que se llama al momento de que el cliente elige la opcion de pago en efectivo
+     */
     public void pagoEfectivo(){
      IVA=(total*0.132);
      totalIVA=total+IVA;
@@ -170,6 +198,9 @@ public class PagoController implements Initializable {
      txttotal.setDisable(true);
      lblmensaje.setText("Acerquese a la caja a pagar su pedido, por favor");
     }
+    /**
+     * Metodo que se llama cuando el cliente selecciona la opcion de pago con tarjeta de crédito
+     */
     public void pagoTarjeta(){
      name.setMinHeight(20);
      name.setMinWidth(200);

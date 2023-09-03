@@ -13,32 +13,55 @@ import java.util.ArrayList;
 public class Cliente {
     private String usuario;
     private String clave;
+    /**
+     * Lista de los clientes estatica para que sea posible accder a ella desde todo el proyecto.
+     */
     public static ArrayList<Cliente> clientes;
-
+    /**
+     * 
+     * @param usuario Usuario del cliente
+     * @param clave Clave del cliente
+     */
     public Cliente(String usuario, String clave) {
         this.usuario = usuario;
         this.clave = clave;
     }
-
+    /**
+     * 
+     * @return Usuario del cliente
+     */
     public String getUsuario() {
         return usuario;
     }
-
+    /**
+     * 
+     * @param usuario Nuevo usuario del cliente
+     */
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-
+    /**
+     * 
+     * @return Clave del cliente
+     */
     public String getClave() {
         return clave;
     }
-
+    /**
+     * 
+     * @param clave Nueva clave del cliente 
+     */
     public void setClave(String clave) {
         this.clave = clave;
     }
     
 
 
-
+    /**
+     * 
+     * @param obj Obejto a comparar
+     * @return Booleano que afirma si la comparación es acertada o no
+     */
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -55,41 +78,3 @@ public class Cliente {
     
     
 }
-/*
-Generar clientes, no pude hacer mas porque al hacer commit cada archivo individual no puede exceder 100 mb
-asi que le reduje a 50000
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Random;
-
-public class RandomDataGenerator {
-
-    private static final String[] NAMES = {"Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Helen", "Ivy", "Jack"};
-
-    private static String generateRandomName() {
-        return NAMES[new Random().nextInt(NAMES.length)];
-    }
-
-    public static void main(String[] args) {
-        long numLines = 50000;
-        String fileName = "datos_aleatorios.txt";
-
-        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("src/randomdatagenerator/clientesArchivoGrande.txt"))) {
-            for (long i = 1; i <= numLines; i++) {
-                String name = generateRandomName();
-                String line = name + "," + i;
-
-                bufferedWriter.write(line);
-                bufferedWriter.newLine(); // Agrega un salto de línea según el sistema operativo
-            }
-            System.out.println("Archivo generado exitosamente.");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
-
-*/

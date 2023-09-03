@@ -56,10 +56,7 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Label styleClass="labelTituloMedianoVB" text="Valor a pagar:">
-                           <padding>
-                              <Insets right="50.0" />
-                           </padding>
+                        <Label prefHeight="25.0" prefWidth="140.0" styleClass="labelTituloMedianoVB" text="Valor a pagar:">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>

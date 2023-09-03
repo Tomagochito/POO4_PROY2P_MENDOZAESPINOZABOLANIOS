@@ -26,50 +26,91 @@ import proyectopoo.heladeria.VentanaToppingsController;
  */
 public class Pedido implements Serializable, Pagable {
 
-
-    Base base1;
-    ArrayList<Sabor> listasabores;
-    ArrayList<Topping> listatopping;
-    int numPago = 9999;
-
+    /**
+     * Base del helado
+     */
+    private Base base1;
+    /**
+     * ArrayList de sabores del helado
+     */
+    private ArrayList<Sabor> listasabores;
+    /**
+     * ArrayList de topping del helado
+     */
+    private ArrayList<Topping> listatopping;
+    /**
+     * ID de pago usado en el método generar transaccion
+     */
+    private int numPago = 9999;
+    
+    /**
+     * 
+     * @param base1 Base de helado escogida por el cliente
+     * @param listasabores Lista de sabores que el cliente escogió para su helado
+     * @param listatopping Lista de toppings que el cliente eligió para su helado
+     */
     public Pedido(Base base1, ArrayList<Sabor> listasabores, ArrayList<Topping> listatopping) {
         this.base1 = base1;
         this.listasabores = listasabores;
         this.listatopping = listatopping;
     }
 
-    
+    /**
+     * 
+     * @return Base del helado escogida por el cliente
+     */
     public Base getBase1() {
         return base1;
     }
-
+    /**
+     * 
+     * @param base1 Cambia la base por base1 del helado de ser necesario 
+     */
     public void setBase1(Base base1) {
         this.base1 = base1;
     }
-
+    /**
+     * 
+     * @return Lista de los sabores escogidos por el cliente 
+     */
     public ArrayList<Sabor> getListasabores() {
         return listasabores;
     }
-
+    /**
+     * 
+     * @param listasabores Cambia la lista de sabores del cliente por la listasabores de ser necesario
+     */
     public void setListasabores(ArrayList<Sabor> listasabores) {
         this.listasabores = listasabores;
     }
-
+    /**
+     * 
+     * @return Lista de los toppings escogidos por el cliente 
+     */
     public ArrayList<Topping> getListatopping() {
         return listatopping;
     }
-
+    /**
+     * 
+     * @param listatopping Cambia la lista de toppings del cliente por la listatopping de ser necesario
+     */
     public void setListatopping(ArrayList<Topping> listatopping) {
         this.listatopping = listatopping;
     }
-
+    /**
+     * 
+     * @return Codigo del pago generado
+     */
     public int getNumPago() {
         return numPago;
     }
 
 
 
-
+    /**
+     * Genera la transaccion que se ha generado al pagar el pedido, y escribe la 
+     * informacion del pago en un archivo pago.txt
+     */
     @Override
     public void generarTransaccion() {
         Date fecha=new Date();
@@ -91,7 +132,11 @@ public class Pedido implements Serializable, Pagable {
         }
         
     }
-
+    /**
+     * 
+     * @param objeto Objeto a serializar
+     * @param nombreArchivo Nombre que se le pondrá al objeto serializado
+     */
     public static void serializarPedido(Pedido objeto, String nombreArchivo) {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ManejoArchivos.rutaArchivos + nombreArchivo))) {
             oos.writeObject(objeto);

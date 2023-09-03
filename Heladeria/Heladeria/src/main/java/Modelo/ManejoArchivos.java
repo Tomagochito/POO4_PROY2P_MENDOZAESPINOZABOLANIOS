@@ -25,7 +25,11 @@ public class ManejoArchivos {
     
     public static final String rutaArchivos="src/main/resources/proyectopoo/heladeria/archivos/";
         
-    
+    /**
+     * 
+     * @param nombre_archivo se inserta la ruta del archivo que se va a leer.
+     * @return  ArrayList de los datos del archivo
+     */
     public static ArrayList<String> leerArchivoTexto(String nombre_archivo){
         ArrayList<String> informacion = new ArrayList<>();
         try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaArchivos + nombre_archivo)) ) ){
@@ -46,7 +50,11 @@ public class ManejoArchivos {
        return informacion;
     }//cierre del metodo
     
-       
+    /**
+     * 
+     * @return ArrayList de objetos de la clase clientes, que se utiliza para la 
+     * posterior validacion de cada cliente
+     */   
     public static ArrayList<Cliente> listaClientes(){
         ArrayList<String> clientestxt = ManejoArchivos.leerArchivoTexto("clientes.txt");
          clientes=new ArrayList<>();
@@ -56,7 +64,11 @@ public class ManejoArchivos {
          }
          return clientes;
     }
-
+    /**
+     * 
+     * @return ArrayList de objetos de la clase Base, la cual se utiliza en la ventana de Bases
+     * para mostrar las bases de helados disponibles al cliente.
+     */
     public static ArrayList<Base> listaBases(){
         ArrayList<String> basestxt = ManejoArchivos.leerArchivoTexto("bases.txt");
          bases=new ArrayList<>();
@@ -67,7 +79,11 @@ public class ManejoArchivos {
          return bases;
     }
     
-    
+    /**
+     * 
+     * @return ArrayList de objetos de la clase Sabor, la cual se utiliza en la ventana de Sabores
+     * para mostrar los sabores de helados disponibles al cliente.
+     */
     public static ArrayList<Sabor> listaSabores(){
         ArrayList<String> saborestxt = ManejoArchivos.leerArchivoTexto("sabores.txt");
          sabores=new ArrayList<>();
@@ -78,7 +94,11 @@ public class ManejoArchivos {
          return sabores;
     }
         
-
+    /**
+    * 
+    * @return ArrayList de objetos de la clase Topping, la cual se utiliza en la ventana de Toppings
+     * para mostrar los toppings de helados disponibles al cliente.
+    */
     public static ArrayList<Topping> listaToppings(){
         ArrayList<String> toppingstxt = ManejoArchivos.leerArchivoTexto("toppings.txt");
          toppings=new ArrayList<>();
@@ -91,7 +111,12 @@ public class ManejoArchivos {
     
         
         
-        
+     /**
+      * 
+      * @param nombre_archivo Nombre del archivo que se va a escribir
+      * @param agregar Booleano que permite agregar o no el archivo
+      * @param contenido La linea que se va a escribir en el archivo
+      */   
     public static void escribirArchivoTextoPedido(String nombre_archivo, boolean agregar, String contenido){
         try(BufferedWriter bw = new BufferedWriter (new FileWriter (nombre_archivo, agregar) ) ){
             // escritura
@@ -104,7 +129,11 @@ public class ManejoArchivos {
             System.out.println("Ocurrio una excepcion de tipo IOException");
         }//se cierra el catch
     }// se cierra el metodo
-
+    /**
+     * 
+     * @param texto Texto al que se le va a aplicar la capitalizacion(Poner la primera letra en mayuscula)
+     * @return Texto capitalizado
+     */
     public static String capitalizar(String texto) {
     if (texto == null || texto.isEmpty()) {
         return texto;
