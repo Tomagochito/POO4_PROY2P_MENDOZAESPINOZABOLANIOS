@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**
@@ -15,6 +16,7 @@ import java.io.IOException;
  */
 
 public class App extends Application {
+        public static ArrayList<Pedido> pedidos=new ArrayList<>();
         public static Pedido pedidoactual = new Pedido(null,null,null);
     
    /** public Pedido getPedidoactual() {

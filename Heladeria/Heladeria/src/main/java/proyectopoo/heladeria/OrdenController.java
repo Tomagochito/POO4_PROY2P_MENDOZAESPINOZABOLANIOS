@@ -21,12 +21,14 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
- * @author Lenovo
+ * @author Guillermo Mendoza
  */
 public class OrdenController implements Initializable {
 
     /**
-     * Initializes the controller class.
+     * 
+     * @param url Localizacion del FXML
+     * @param rb Recursos del controlador
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -42,7 +44,7 @@ public class OrdenController implements Initializable {
         }catch(Exception e){
             System.out.println("Erro al cargar imagen");
         }
-        lblnumPedido.setText("Tu pedido es el #"+VentanaToppingsController.numPedido+" pronto te llamaremos.");
+        lblnumPedido.setText("Tu pedido es el #"+(VentanaToppingsController.numPedido+1)+" pronto te llamaremos.");
         task();
     }
     @FXML
@@ -61,7 +63,9 @@ public class OrdenController implements Initializable {
     private Label lblcontador;
     @FXML
     private ImageView imgvgif;
-    
+    /**
+     * Metodo que se ejecuta para la correcta utilizacion de Hilos en javafx
+     */
     public void task(){
         Thread hilo=new Thread(new Runnable() {
             @Override
@@ -72,6 +76,9 @@ public class OrdenController implements Initializable {
         hilo.setDaemon(true);
         hilo.start();
     }
+    /**
+     * Metodo utilizado para actualizar el label del contador y este cumpla su correcta funcion en javafx
+     */
     public void contador(){
         for(int i=5;i>=0;i--){
             String contador="Esta ventana se cerrara en "+i+" segundos...";
@@ -87,6 +94,10 @@ public class OrdenController implements Initializable {
                 ex.printStackTrace();
             }
         }
-        Platform.exit();
+        try{
+            App.setRoot("VentanaInicio");
+        }catch(IOException ioe){
+            System.out.println("Error al cambiar ventana");
+        }
     }
 }

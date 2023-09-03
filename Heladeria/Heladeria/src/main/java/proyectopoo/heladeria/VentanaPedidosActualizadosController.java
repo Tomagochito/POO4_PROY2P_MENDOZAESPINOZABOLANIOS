@@ -40,7 +40,7 @@ public class VentanaPedidosActualizadosController implements Initializable {
             @Override
             protected Void call() throws Exception {
                 while (running) {
-                    ArrayList<String> pedidos = ManejoArchivos.leerArchivoTexto("pedidos.txt");
+                    ArrayList<String> pedidos = ManejoArchivos.leerArchivoTexto("pedido.txt");
                     Collections.reverse( pedidos );
                     ObservableList<String> items = FXCollections.observableArrayList(pedidos  );
                     

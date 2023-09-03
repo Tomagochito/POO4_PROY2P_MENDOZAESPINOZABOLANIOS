@@ -35,10 +35,16 @@ import static proyectopoo.heladeria.VentanaSaboresController.sabor2;
  *
  * @author Nahim
  */
-//Guillermo
 public class VentanaToppingsController implements Initializable {
+        /**
+         * Variable estatica que corresponde al ID del pedido, permitiendo acceder a el desde otras clases del proyecto
+         */
         public static int numPedido=9999;
+        /**
+         * Variable estatica del total sin adicionar del IVA, permitiendo acceder a ella desde otras clases del proyecto
+         */
         public static double total;
+
         @FXML
         private VBox root_toppings;
         @FXML
@@ -59,10 +65,14 @@ public class VentanaToppingsController implements Initializable {
         private ImageView imgvgif;
         ArrayList<Topping> listatoppings = new ArrayList<Topping>();
         ArrayList<Topping> toppingselec = new ArrayList<Topping>();
-            private double totalAmount = 0.0;
+        private double totalAmount = 0.0;
 
         
-
+/**
+ * 
+ * @param url localizacion del FXML
+ * @param rb recursos del controlador
+ */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -83,7 +93,9 @@ public class VentanaToppingsController implements Initializable {
         
     }    
     
-    
+    /** 
+     * Carga los toppings del archivo de toppings.
+     */
      public void cargartoppings() {
         try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "toppings.txt"))) {
             String linea;
@@ -100,7 +112,9 @@ public class VentanaToppingsController implements Initializable {
             System.out.println("Ocurrio un error inesperado en la lectura del archivo de toppings");
         }
     }
-    
+    /**
+     * Crea los checkbox de cada topping en la ventana de toppings.
+     */
     public void crearcheckbox(){
         for(Topping tp:listatoppings){
             CheckBox chb = new CheckBox(tp.toString());
@@ -108,7 +122,13 @@ public class VentanaToppingsController implements Initializable {
             chb.setOnAction(event ->recuperartoppings(chb,tp));
         }
     }
-    
+    /**
+     * 
+     * @param ch variable de cada checkbox de los toppings, se usa para 
+     * validar si el checkbox esta seleccionado o no.
+     * @param tp es el topping al que pertenece al checkbox, si el checkbox
+     * se encuentra seleccionado este se guarda en una lista de toppings seleccionados
+     */
     public void recuperartoppings(CheckBox ch,Topping tp) {
         if (ch.isSelected()) {
             totalAmount += tp.getPrecioTopping();
@@ -120,7 +140,10 @@ public class VentanaToppingsController implements Initializable {
         totaltoppings.setText("$ " + totalAmount);
     }
     
-    
+    /**
+     * Metodo del boton continuar en la ventana topping, se utiliza para generar el pedido
+     * del cliente y guardarlo en un archivo, para luego cambiar a la ventana pago
+     */
     @FXML
     public void botonContinuar(){
         //Se debe generar pedido y guardar en pedidotxt
@@ -132,8 +155,12 @@ public class VentanaToppingsController implements Initializable {
             System.out.println("No se ha podido cambiar la ventana");
         }
     }
-    
+    /**
+     * Metodo llamado por botonContinuar() para guardar el pedido en el 
+     * archivo pedido.txt, tambien calcula el total sin incluir el IVA.
+     */
     public void guardarPedido(){
+        total=0.0;
         total+=App.pedidoactual.getBase1().getPrecioBase();
         for(Topping t:toppingselec){
             total+=t.getPrecioTopping();
@@ -141,14 +168,16 @@ public class VentanaToppingsController implements Initializable {
         for (Sabor s:App.pedidoactual.getListasabores()){
             total+=s.getPrecioSabor();
         }
-        
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
-            String linea=numPedido+","+VentanaInicioController.clienteActual.getUsuario()+","+total+"\n";
+        App.pedidos.add(App.pedidoactual);
+        for(Pedido p: App.pedidos){
+         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
+            String linea=numPedido+", "+VentanaInicioController.clienteActual.getUsuario()+", "+total+"\n";
             bf.write(linea);
         
         }catch(IOException ioe){
                 System.out.println(ioe.getMessage());
         
+        }
         }
        numPedido--;
     }
