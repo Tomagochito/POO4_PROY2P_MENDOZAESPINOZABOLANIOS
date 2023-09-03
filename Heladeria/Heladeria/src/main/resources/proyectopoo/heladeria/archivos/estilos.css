@@ -38,17 +38,20 @@
 }
 .labelTituloGrandeVB{
     -fx-font-size: 28px; /* Tamaño de fuente */
-    -fx-text-fill: #0A497B;
+    -fx-text-fill: #e85ea1;
     -fx-font-family:"Georgia";
+    -fx-font-weight: "bold";
 }
 .labelTituloMedianoVB{
     -fx-font-size: 22px; /* Tamaño de fuente */
-    -fx-text-fill: #0A497B;
+    -fx-text-fill: #e85ea1;
     -fx-font-family:"Georgia";
+    -fx-font-weight:"bold";
 }
 .labelTituloPequenioVB{
     -fx-font-size: 16px; /* Tamaño de fuente */
     -fx-text-fill: red;
-    -fx-font-family:"Georgia";     
+    -fx-font-family:"Georgia";
+    
 }
 

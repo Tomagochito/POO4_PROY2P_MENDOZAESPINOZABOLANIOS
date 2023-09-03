@@ -10,6 +10,7 @@ import Modelo.Sabor;
 import Modelo.Topping;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -22,6 +23,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import static proyectopoo.heladeria.VentanaSaboresController.sabor1;
@@ -30,8 +33,9 @@ import static proyectopoo.heladeria.VentanaSaboresController.sabor2;
 /**
  * FXML Controller class
  *
- * @author User
+ * @author Nahim
  */
+//Guillermo
 public class VentanaToppingsController implements Initializable {
         public static int numPedido=9999;
         public static double total;
@@ -49,6 +53,10 @@ public class VentanaToppingsController implements Initializable {
         private Label totaltoppings;
         @FXML
         private Button botonContinuarToppings;
+        @FXML
+        private ImageView imgvtoppings;
+        @FXML
+        private ImageView imgvgif;
         ArrayList<Topping> listatoppings = new ArrayList<Topping>();
         ArrayList<Topping> toppingselec = new ArrayList<Topping>();
             private double totalAmount = 0.0;
@@ -58,8 +66,21 @@ public class VentanaToppingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaArchivos+"bases3.png")){
+            Image i = new Image(f);
+            imgvtoppings.setImage(i);
+        }catch(IOException i){
+            System.out.println("Error al cargar imagen");
+        }
+        try(FileInputStream g=new FileInputStream(ManejoArchivos.rutaArchivos+"L.gif")){
+            Image im = new Image(g);
+            imgvgif.setImage(im);
+        }catch(IOException i){
+            System.out.println("Error al cargar imagen");
+        }
         cargartoppings();
         crearcheckbox();
+        
     }    
     
     

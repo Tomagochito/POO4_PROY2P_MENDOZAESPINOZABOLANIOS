@@ -65,8 +65,6 @@ public class VentanaBasesController implements Initializable {
     @FXML
     private Label nodoLabelprecio3;
     @FXML
-    private Canvas nodoCanvas;
-    @FXML
     private Button botonContinuar;
     @FXML
     private Label total;
@@ -76,6 +74,8 @@ public class VentanaBasesController implements Initializable {
     private ToggleButton tboton332;
     @FXML
     private ToggleButton tboton333;
+    @FXML
+    private ImageView imgvbases;
     
     public static Base baseElegida;
     boolean amarillo_a_verde;
@@ -87,8 +87,12 @@ public class VentanaBasesController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         
        
-        GraphicsContext gc = nodoCanvas.getGraphicsContext2D();
-        dibujarHeladoDerretido(gc);
+        try(FileInputStream in=new FileInputStream(ManejoArchivos.rutaArchivos+"base.jpg")){
+            Image i = new Image(in);
+            imgvbases.setImage(i);
+        }catch(IOException ioe){
+                System.out.println("Error de cambiar imagen");
+                }
         total.setText("0.00");
         Collections.sort(bases);
         tboton331.getStyleClass().add("estiloBotonAmarillo");
@@ -108,23 +112,6 @@ public class VentanaBasesController implements Initializable {
         else{System.out.println("la lista es mayor a 3");}
 
     }    
-    
-    private void dibujarHeladoDerretido(GraphicsContext gc) {
-        double centroX = 411;
-        double inicioY = 0; // Mantenemos el signo negativo
-        double escalaX = 100;
-        double escalaY = 80;
-        gc.setFill(Color.hsb(180, 1, 1, 0.5));
-        gc.beginPath();
-        for (double x = -Math.PI * 2; x <= Math.PI * 2; x += 0.01) {
-            double y = -Math.abs(Math.sin(3 * x)) * escalaY; // Cambiamos el signo a negativo
-            double xPixel = centroX + x * escalaX;
-            double yPixel = inicioY - y; // Mantenemos el signo negativo
-            gc.lineTo(xPixel, yPixel);
-        }
-        gc.closePath();
-        gc.fill();
-    }
 
          
     @FXML

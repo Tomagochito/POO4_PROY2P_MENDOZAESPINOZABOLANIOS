@@ -16,23 +16,23 @@
    <children>
       <StackPane alignment="CENTER_LEFT" prefHeight="602.0" prefWidth="501.0">
          <children>
-            <Label fx:id="lblpago" text="PAGO" textFill="#140c72">
-               <font>
-                  <Font name="System Bold" size="40.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets bottom="350.0" left="40.0" />
-               </padding>
-            </Label>
             <ImageView fx:id="imvdecoracion" fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="imgvdeco" fitHeight="360.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                <StackPane.margin>
                   <Insets bottom="20.0" left="320.0" />
                </StackPane.margin>
             </ImageView>
+            <Label fx:id="lblpago" prefHeight="57.0" prefWidth="152.0" text="PAGO" textFill="#904da4">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <StackPane.margin>
+                  <Insets bottom="350.0" left="40.0" />
+               </StackPane.margin>
+            </Label>
             <HBox fx:id="hbtpago" prefHeight="51.0" prefWidth="450.0" spacing="80.0">
                <children>
                   <RadioButton fx:id="rbefectivo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Efectivo">

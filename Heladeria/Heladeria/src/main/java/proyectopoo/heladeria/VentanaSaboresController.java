@@ -10,6 +10,7 @@ import Modelo.ManejoArchivos;
 import Modelo.Pedido;
 import Modelo.Sabor;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -26,6 +27,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -61,6 +64,8 @@ public class VentanaSaboresController implements Initializable {
     private HBox HBox3Sabores;
     @FXML
     private Label totalsabores;
+    @FXML
+    private ImageView imgvsabor;
     double totalpago;
     ArrayList<Sabor> listasabores = new ArrayList<>();
     public static Sabor sabor1;
@@ -68,6 +73,12 @@ public class VentanaSaboresController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaArchivos+"bases3.png")){
+            Image i = new Image(f);
+            imgvsabor.setImage(i);
+        }catch(IOException i){
+            System.out.println("Error al cargar imagen");
+        }
         cargarsabores();
         cargarcombo();
         cbsabor1.valueProperty().addListener((observable, oldValue, newValue) -> actualizarTotal());
@@ -116,7 +127,7 @@ private void actualizarTotal() {
     }
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
-        
+            
             cbsabor1.getItems().setAll(listaordenada);
             cbsabor2.getItems().setAll(listaordenada);
             totalsabores.setText("0.00");
@@ -132,8 +143,12 @@ private void botoncontinuar(ActionEvent event) {
              sabor2 = cbsabor2.getValue();
              
            ArrayList<Sabor> selecsabores = new ArrayList<>();
+           if(sabor1!=null){
            selecsabores.add(sabor1);
+           }
+           if(sabor2!=null){
            selecsabores.add(sabor2);
+           }
 
             // Continuar con la siguiente ventana (si es necesario)
             App.pedidoactual.setListasabores(selecsabores);

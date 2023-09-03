@@ -84,32 +84,23 @@ public class VentanaInicioController implements Initializable {
             //sea sostenible y no lea el archivo de clientes apenas el usuario quiera iniciar sesion,
             //sino que ya este cargado, pues es un proceso que puede demorar
             
-            Task<Void> cargaArchivoTask = new Task<Void>() {
-                @Override
-                protected Void call() throws Exception {
-                   clientesV1 = ManejoArchivos.listaClientes();
-                    System.out.println("clientes cargados");
-                   bases=ManejoArchivos.listaBases();
-                    System.out.println("bases cargadas");
-                   sabores=ManejoArchivos.listaSabores();
-                    System.out.println("sabores cargados");
-                   toppings=ManejoArchivos.listaToppings();
-                    System.out.println("toppings cargados");
-                   return null;
-               }
-            };
+            Thread cargaArchivoThread = new Thread(() -> {
+        try {
+            clientesV1 = ManejoArchivos.listaClientes();
+            System.out.println("clientes cargados");
+            bases = ManejoArchivos.listaBases();
+            System.out.println("bases cargadas");
+            sabores = ManejoArchivos.listaSabores();
+            System.out.println("sabores cargados");
+            toppings = ManejoArchivos.listaToppings();
+            System.out.println("toppings cargados");
+        } catch (Exception e) {
+            System.out.println("Proceso fallido");
+        }
+    });
 
-            cargaArchivoTask.setOnSucceeded(event -> {
-                System.out.println("Archivos cargados en segundo plano");
-            });
-
-            cargaArchivoTask.setOnFailed(event -> {
-                System.out.println("Error al cargar el archivo en segundo plano");
-            });
-
-            Thread thread = new Thread(cargaArchivoTask);
-            thread.setDaemon(true); // Si deseas que el hilo se detenga cuando se cierre la aplicación
-            thread.start();
+    cargaArchivoThread.setDaemon(true); // Si deseas que el hilo se detenga cuando se cierre la aplicación
+    cargaArchivoThread.start();
 
         }
 

@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.ResourceBundle;
@@ -73,7 +74,7 @@ public class VentanaUbicacionController implements Initializable {
     public void CargarImagenes() {
         Thread t = new Thread(new Runnable() {
             public void run() {
-                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt"))) {
+                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt",StandardCharsets.UTF_8))) {
                     String linea;
                     while ((linea = bf.readLine()) != null) {
                         String[] datos = linea.split(",");
