@@ -4,7 +4,6 @@ proyectopoo\heladeria\VentanaBasesController.class
 Modelo\TipoPago.class
 Modelo\IncompleteStageException.class
 proyectopoo\heladeria\VentanaInicioController.class
-proyectopoo\heladeria\VentanaInicioController$2.class
 proyectopoo\heladeria\VentanaPedidosActualizadosController$1.class
 Modelo\Topping.class
 Modelo\Local.class

@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-9999,nahinespinoza,5.0
-=======
-9999, guillermomendoza, 7.0
->>>>>>> f48fb2849b5da4d4e0421ba710f21d47a24995e6
+9998, nahinespinoza, 4.0

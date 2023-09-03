@@ -16,7 +16,8 @@ import java.util.ArrayList;
  */
 
 public class App extends Application {
-        public static ArrayList<Pedido> pedidos=new ArrayList<>();
+            //public static ArrayList<Pedido> pedidos;
+
         public static Pedido pedidoactual = new Pedido(null,null,null);
     
    /** public Pedido getPedidoactual() {
@@ -31,7 +32,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {      
-        scene = new Scene(loadFXML("VentanaInicio"), 822, 462);
+        scene = new Scene(loadFXML("Cargando"), 822, 462);
         stage.setScene(scene);
         stage.setTitle("Heladeria");
         stage.show();   
@@ -51,6 +52,7 @@ public class App extends Application {
 
     
     public static void main(String[] args) {
+
         launch();
     }
         

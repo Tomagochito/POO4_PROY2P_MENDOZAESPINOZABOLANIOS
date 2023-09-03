@@ -25,7 +25,6 @@ import proyectopoo.heladeria.VentanaToppingsController;
  * @author tomas
  */
 public class Pedido implements Serializable, Pagable {
-
     /**
      * Base del helado
      */
