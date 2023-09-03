@@ -35,15 +35,14 @@ import javafx.scene.layout.VBox;
 /**
  * FXML Controller class
  *
- * @author tomas
+ * @author Nahin
  */
 public class VentanaSaboresController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+
     @FXML
     private VBox VBox1Sabores;
+ 
     @FXML
     private VBox VBoxSabor1;
     @FXML
@@ -65,12 +64,19 @@ public class VentanaSaboresController implements Initializable {
     @FXML
     private Label totalsabores;
     @FXML
+  
     private ImageView imgvsabor;
     double totalpago;
     ArrayList<Sabor> listasabores = new ArrayList<>();
     public static Sabor sabor1;
     public static Sabor sabor2;
 
+    /**
+     * Metodo para inicializar el controller 
+     * @param url se utiliza para especificar la ubicación del archivo FXML
+     * @param rb maneja los recursos locales 
+     */
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaArchivos+"bases3.png")){
@@ -84,7 +90,10 @@ public class VentanaSaboresController implements Initializable {
         cbsabor1.valueProperty().addListener((observable, oldValue, newValue) -> actualizarTotal());
         cbsabor2.valueProperty().addListener((observable, oldValue, newValue) -> actualizarTotal());
     }
-
+    
+    /**
+     * Metodo para cargar los datos de un archivo de texto en una lista de sabores
+     */
     public void cargarsabores() {
         try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "sabores.txt"))) {
             String linea;
@@ -101,7 +110,11 @@ public class VentanaSaboresController implements Initializable {
             System.out.println("Ocurrio un error inesperado en la lectura del archivo de sabores");
         }
     }
-
+/**
+ * Metodo para ordenar la lista de sabores en orden albetico 
+ * @param lista Lista de sabores a utilizar 
+ * @return Lista ordenadas en forma descendente
+ */
     public ArrayList<Sabor> ordenarlista(ArrayList<Sabor> lista) {
         ArrayList<Sabor> listaOrdenada = new ArrayList<>(lista);
         Collections.sort(listaOrdenada, new Comparator<Sabor>() {
@@ -112,6 +125,9 @@ public class VentanaSaboresController implements Initializable {
         });
         return listaOrdenada;
     }
+    /**
+     * Metodo para actualizar el label "totalsabores" y se muestre en escena el precio actulizado segun las selecciones que se hagan 
+     */
 private void actualizarTotal() {
         sabor1 = cbsabor1.getValue();
         sabor2 = cbsabor2.getValue();
@@ -125,6 +141,9 @@ private void actualizarTotal() {
 
         totalsabores.setText("$ " + totalpago);
     }
+/**
+ * Metodo para cargar la lista de sabores al combo box
+ */
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
             
@@ -132,7 +151,10 @@ private void actualizarTotal() {
             cbsabor2.getItems().setAll(listaordenada);
             totalsabores.setText("0.00");
             }
-
+/**
+ * Metodo implementado para enviar los datos de los sabores seleccionados al pedido actual y pasar a la siguiente escena 
+ * @param event Evento que se activara cuando clicken el boton 
+ */
     @FXML
 private void botoncontinuar(ActionEvent event) {
     try {

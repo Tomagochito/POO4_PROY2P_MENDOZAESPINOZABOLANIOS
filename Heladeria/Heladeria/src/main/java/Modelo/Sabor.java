@@ -8,37 +8,63 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- *
+ *Clase de Sabores
  * @author tomas
  */
+
 public class Sabor implements Serializable {
+    /**
+     * Variables
+     */
+    
     public static ArrayList<Sabor> sabores;
     private String nombreSabor;
     private double precioSabor;
-
+    
+    /**
+     * Constructor de la clase Sabor
+     * @param nombreSabor El nombre del sabor
+     * @param precioSabor El precio del sabor
+     */
     public Sabor(String nombreSabor, double precioSabor) {
         this.nombreSabor = nombreSabor;
         this.precioSabor = precioSabor;
     }
 
-
+    /**
+     * Obtener el nombre del Sabor
+     * @return El nombre del sabor
+     */
     public String getNombreSabor() {
         return nombreSabor;
     }
-
+/**
+ * Cambiar el nombre del Sabor
+ * @param nombreSabor El nombre del nuevo Sabor
+ */
     public void setNombreSabor(String nombreSabor) {
         this.nombreSabor = nombreSabor;
     }
-
+/**
+ * Obtiene el precio del Sabor
+ * @return el precio del sabor
+ */
     public double getPrecioSabor() {
         return precioSabor;
     }
 
+    /**
+     * Cambiar el precio del sabor
+     * @param precioSabor El nuevo precio del Sabor
+     */
     public void setPrecioSabor(double precioSabor) {
         this.precioSabor = precioSabor;
     }
 
-
+/**
+ * Implementacion propia del metodo ToString
+ * @return los datos del Sabor
+ */
     @Override
     public String toString(){
         return this.getNombreSabor()+" - "+ String.valueOf(this.precioSabor);

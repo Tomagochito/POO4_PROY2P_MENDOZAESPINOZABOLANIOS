@@ -5,9 +5,16 @@
 package Modelo;
 
 /**
- *
+ *Tipos de pagos
  * @author tomas
  */
 public enum TipoPago {
-    E,C
+    /**
+     * Tipo de pago en Efectivo
+     */
+    E,
+    /**
+     * Tipo de pago Tarjeta de Credito
+     */
+    C
 }

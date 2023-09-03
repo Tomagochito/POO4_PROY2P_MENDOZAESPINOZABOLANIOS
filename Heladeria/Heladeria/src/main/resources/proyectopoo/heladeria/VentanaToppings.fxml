@@ -64,7 +64,7 @@
                               <Insets left="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="totaltoppings" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="Label">
+                        <Label fx:id="totaltoppings" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="\$0.0">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>

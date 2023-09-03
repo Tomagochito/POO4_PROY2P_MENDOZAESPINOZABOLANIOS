@@ -21,38 +21,53 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class VentanaUbicacionController implements Initializable {
 
+    /**
+     * Variables
+     */
     private ArrayList<Local> locales = new ArrayList<>();
     String rutamapa = ManejoArchivos.rutaArchivos + "baseYogurt.png";
 
-//    @FXML
-//    private ImageView Mapa;
     @FXML
     private Pane root1;
     @FXML
     private ImageView iv;
 
+    /**
+     * Metodo para inicializar el controller
+     *
+     * @param url se utiliza para especificar la ubicación del archivo FXML
+     * @param rb maneja los recursos locales
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         CargarFondo();
         CargarImagenes();
     }
 
+    /**
+     * Metodo para cargar la imagen del fondo de la escena
+     */
     public void CargarFondo() {
         try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaArchivos + "mapa.png")) {
             Image imgmapa = new Image(input);
@@ -70,11 +85,14 @@ public class VentanaUbicacionController implements Initializable {
         }
     }
 
+    /**
+     * Metodo para cargar los icons de los Helados y sus datos
+     */
     @FXML
     public void CargarImagenes() {
         Thread t = new Thread(new Runnable() {
             public void run() {
-                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt",StandardCharsets.UTF_8))) {
+                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt", StandardCharsets.UTF_8))) {
                     String linea;
                     while ((linea = bf.readLine()) != null) {
                         String[] datos = linea.split(",");
@@ -84,16 +102,20 @@ public class VentanaUbicacionController implements Initializable {
                         String horarios = datos[3];
                         Local local = new Local(posx, posy, nomlocal, horarios);
                         Platform.runLater(() -> cargarLocales(local.getEjex(), local.getEjey(), local.getHorario(), local.getLugar()));
+                        //Se genera un numero aletario para la generacion del siiguiente local
+                        int tiempoaleatorio = (int) (Math.random() * 10) + 1;
                         try {
-                            Thread.sleep(3000);
+                            Thread.sleep(tiempoaleatorio * 1000);
                         } catch (InterruptedException ex) {
                             ex.printStackTrace();
                         }
                     }
 
                 } catch (FileNotFoundException ae) {
+                    System.out.println("Ocurrio un error");
 
                 } catch (IOException a) {
+                    System.out.println("Ocurrio un error inesperado");
 
                 }
 
@@ -102,7 +124,15 @@ public class VentanaUbicacionController implements Initializable {
         t.start();
     }
 
-    public void cargarLocales(Double ejex, Double ejey, String nombrelocal, String horarioslocal) {
+    /**
+     * Metodo para uibar los icons de los locales
+     *
+     * @param ejex La coordenada que tomara en el eje x
+     * @param ejey La coordenada que tomara en el eje y
+     * @param direccion La direccion del Local
+     * @param horarioslocal Los horarios de inicio y cierre del local 
+     */
+    public void cargarLocales(Double ejex, Double ejey, String direccion, String horarioslocal) {
         try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaArchivos + "heladomapa2.png")) {
             Image imgLocal = new Image(input);
 
@@ -112,8 +142,8 @@ public class VentanaUbicacionController implements Initializable {
             imageView1.setLayoutX(ejex);
             imageView1.setLayoutY(ejey);
 
-            // Crea una instancia de Local y almacénala en UserData
-            Local local = new Local(ejex, ejey, nombrelocal, horarioslocal);
+            // Crea una instancia de Local y se guarda en UserData
+            Local local = new Local(ejex, ejey, direccion, horarioslocal);
             imageView1.setUserData(local);
 
             // Se asigna el evento de clic al ImageView1
@@ -125,16 +155,23 @@ public class VentanaUbicacionController implements Initializable {
         }
     }
 
+    /**
+     * Metodo que mostara una ventana pop up con los detalles de cada local
+     *
+     * @param event Evento que llama al metodo
+     * @param nombreLocal El nombre del local elegido
+     * @param horariosLocal El horario de inicio y cierre de cada local
+     */
     private void mostrarDetalleLocal(MouseEvent event, String nombreLocal, String horariosLocal) {
-        Label contenidoPopup = new Label("Detalles del local:\nNombre: " + nombreLocal + "\nHorarios: " + horariosLocal);
+        Label contenidoPopup = new Label("Detalles del local:\nDireccion: " + nombreLocal + "\nHorarios: " + horariosLocal);
         VBox pane = new VBox();
         VBox pane2 = new VBox();
-
+        //Estetica y ubicacion
         pane.setAlignment(Pos.CENTER);
+        pane.setBackground(new Background(new BackgroundFill(Color.DARKKHAKI, CornerRadii.EMPTY, Insets.EMPTY)));
         pane.getChildren().add(contenidoPopup);
-                pane2.setAlignment(Pos.CENTER_RIGHT);
-
-                pane.getChildren().add(pane2);
+        pane2.setAlignment(Pos.CENTER_RIGHT);
+        pane.getChildren().add(pane2);
 
         Stage popupStage = new Stage();
         popupStage.setTitle("Detalle del Local");
@@ -147,15 +184,15 @@ public class VentanaUbicacionController implements Initializable {
         popupStage.setY(y);
         popupStage.show();
 
-        // Configurar un temporizador para cerrar la ventana emergente después de 5 segundos
+        // Hilo para que se cierre automaticamente en 5 segundos
         Thread contadorThread = new Thread(() -> {
             try {
                 for (int segundos = 5; segundos > 0; segundos--) {
                     Thread.sleep(1000); // Espera 1 segundo
                     final int segundosRestantes = segundos;
-                    // Actualizar el mensaje en la interfaz gráfica usando Platform.runLater
+                    // Actualiza el mensaje en la interfaz gráfica usando Platform.runLater
                     javafx.application.Platform.runLater(() -> {
-                        contenidoPopup.setText("Detalles del local:\nNombre: " + nombreLocal + "\nHorarios: " + horariosLocal+"\nCerrando en " + segundosRestantes + " segundos");
+                        contenidoPopup.setText("Detalles del local:\nNombre: " + nombreLocal + "\nHorarios: " + horariosLocal + "\nCerrando en " + segundosRestantes + " segundos");
                     });
                 }
                 // Cerrar la ventana emergente después de 5 segundos
@@ -168,11 +205,16 @@ public class VentanaUbicacionController implements Initializable {
         });
         contadorThread.start();
         Button botoncerrar = new Button("Cerrar Ventana");
-
+        // Ubicamos el boton cerrar en la ventana 
         pane2.getChildren().addAll(botoncerrar);
         botoncerrar.setOnAction(e -> cerrarVentana(popupStage));
     }
 
+    /**
+     * metodo para cerrar el pop up
+     *
+     * @param stage Ventana actual
+     */
     private void cerrarVentana(Stage stage) {
         stage.close();
     }

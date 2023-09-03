@@ -9,6 +9,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +22,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -64,9 +68,26 @@ public class VentanaBienvenidaController implements Initializable {
     @FXML
     private void mostrarLocales(ActionEvent event) throws IOException {
         App.setRoot("VentanaUbicacion");
-        
+            //Hilo para que en 30 segundos vuelva a la ventana anterior para continuar con el pedido
+        Thread regresar = new Thread(() -> {
+            try {
+                Thread.sleep(30000);
+                Platform.runLater(() -> volverAventanaAnterior());
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        });
+        regresar.start();
+    }      
+      private void volverAventanaAnterior() {
+        try {
+            App.setRoot("VentanaBienvenida");
+        } catch (IOException ex) {
+            System.out.println("Ocurrio un error al regresar de escena ");
+        }
     }
 
+    
     @FXML
     private void agregarBase(ActionEvent event) throws IOException{
         App.setRoot("VentanaBases");
