@@ -4,13 +4,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author tomas
  */
-public class Base implements Comparable<Base> {
+public class Base implements Comparable<Base>,Serializable {
     public static ArrayList<Base> bases;
     
     private String nombreBase;

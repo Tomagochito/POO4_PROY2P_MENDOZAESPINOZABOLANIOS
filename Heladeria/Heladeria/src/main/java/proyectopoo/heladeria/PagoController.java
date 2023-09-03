@@ -5,7 +5,11 @@
 package proyectopoo.heladeria;
 
 import Modelo.IncompleteStageException;
+import Modelo.ManejoArchivos;
+import Modelo.TipoPago;
 import com.sun.javafx.font.LogicalFont;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -18,9 +22,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import static proyectopoo.heladeria.VentanaToppingsController.total;
+
 
 /**
  * FXML Controller class
@@ -28,10 +36,15 @@ import javafx.scene.layout.VBox;
  * @author Lenovo
  */
 public class PagoController implements Initializable {
+    public static double IVA;
+    public static double totalIVA;
+    public static double AdicionalT;
+    public static double totalTarjeta;
 
     /**
      * Initializes the controller class.
      */
+    public static TipoPago clasep;
     @FXML
     private VBox vbpago;
     @FXML
@@ -66,6 +79,8 @@ public class PagoController implements Initializable {
     private ToggleGroup tipopago;
     @FXML
     private HBox hbtipopago;
+    @FXML
+    private ImageView imgvdeco;
     
     TextField name=new TextField();
     TextField number=new TextField();
@@ -76,6 +91,18 @@ public class PagoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaArchivos+"pago.jpg")){
+            Image image=new Image(in);
+            imvdecoracion.setImage(image);
+        }catch(Exception e){
+            System.out.println("Erro al cargar imagen");
+        }
+        try(FileInputStream in2 = new FileInputStream(ManejoArchivos.rutaArchivos+"money.gif")){
+            Image image2=new Image(in2);
+            imgvdeco.setImage(image2);
+        }catch(Exception e){
+            System.out.println("Erro al cargar imagen");
+        }
         rbefectivo.setOnAction((t) -> {pagoEfectivo();
         });
         rbtarjeta.setOnAction((t) -> {pagoTarjeta();
@@ -83,6 +110,7 @@ public class PagoController implements Initializable {
     }
     @FXML
     public void confirmar() {
+        
         RadioButton elegido=(RadioButton)tipopago.getSelectedToggle();
         try{
         if(elegido==null){
@@ -93,7 +121,22 @@ public class PagoController implements Initializable {
                  throw new IncompleteStageException("Informacion de tarjeta incompleta");
             }
             else{
-                //llama generar transaccion
+                clasep=TipoPago.C;
+                App.pedidoactual.generarTransaccion();
+                try{
+                    App.setRoot("Orden");
+                }catch(IOException ioe){
+                     System.out.println("Error a cambiar de escena");
+                    }
+            }
+        }
+        else{
+            clasep=TipoPago.E;
+            App.pedidoactual.generarTransaccion();
+            try{
+                App.setRoot("Orden");
+            }catch(IOException ioe){
+            System.out.println("Error a cambiar de escena");
             }
         }
         }catch(IncompleteStageException i){
@@ -104,19 +147,30 @@ public class PagoController implements Initializable {
               alert.showAndWait();
         }
         
+        
     }
     @FXML
-    public void cancelar(){};
+    public void cancelar(){
+    Stage s=(Stage)btncancelar.getScene().getWindow();
+        s.close();
+    };
     public void pagoEfectivo(){
+     IVA=(total*0.132);
+     totalIVA=total+IVA;
      txtadicional.clear();
      txtiva.clear();
      txttotal.clear();
      txtvalor.clear();
-     txtvalor.setText("0.00");
+     txtvalor.setText(String.valueOf(total));
      txtvalor.setDisable(true);
+     txtiva.setText(String.valueOf(IVA));
+     txtiva.setDisable(true);
+     txtadicional.setDisable(true);
+     txttotal.setText(String.valueOf(totalIVA));
+     txttotal.setDisable(true);
      lblmensaje.setText("Acerquese a la caja a pagar su pedido, por favor");
     }
-    public void pagoTarjeta(){ 
+    public void pagoTarjeta(){
      name.setMinHeight(20);
      name.setMinWidth(200);
      number.setMinHeight(20);
@@ -125,6 +179,22 @@ public class PagoController implements Initializable {
      date.setMinWidth(200);
      cv.setMinHeight(20);
      cv.setMinWidth(200);
+     IVA=(total*0.132);
+     AdicionalT=total*0.10;
+     totalIVA=total+IVA;
+     totalTarjeta=totalIVA+AdicionalT;
+     txtadicional.clear();
+     txtiva.clear();
+     txttotal.clear();
+     txtvalor.clear();
+     txtvalor.setText(String.valueOf(total));
+     txtvalor.setDisable(true);
+     txtiva.setText(String.valueOf(IVA));
+     txtiva.setDisable(true);
+     txtadicional.setText(String.valueOf(AdicionalT));
+     txtadicional.setDisable(true);
+     txttotal.setText(String.valueOf(totalTarjeta));
+     txttotal.setDisable(true);
      hbtipopago.setAlignment(Pos.TOP_LEFT);
      VBox infoT=new VBox();
      VBox txts=new VBox();
@@ -133,10 +203,6 @@ public class PagoController implements Initializable {
      hbtipopago.setPadding(new Insets(10, 0, 0, 40));
      lblmensaje.setText("Ingrese los datos de su tarjeta:");
      lblmensaje.setStyle("-fx-font-weight: bold");
-     txtadicional.clear();
-     txtiva.clear();
-     txttotal.clear();
-     txtvalor.clear();
      Label nombre=new Label("Nombre:");
      Label numero=new Label("Numero:");
      Label fechac=new Label("Fecha de caducidad:");

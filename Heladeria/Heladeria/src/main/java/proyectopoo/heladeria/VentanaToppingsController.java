@@ -34,6 +34,7 @@ import static proyectopoo.heladeria.VentanaSaboresController.sabor2;
  */
 public class VentanaToppingsController implements Initializable {
         public static int numPedido=9999;
+        public static double total;
         @FXML
         private VBox root_toppings;
         @FXML
@@ -102,9 +103,9 @@ public class VentanaToppingsController implements Initializable {
     @FXML
     public void botonContinuar(){
         //Se debe generar pedido y guardar en pedidotxt
-        //guardarPedido();
-       // App.pedidoactual
-        //Pedido.serializarPedido(App.pedidoactual, "pedido"+String.valueOf(numPedido)+".bin");
+        App.pedidoactual.setListatopping(toppingselec);
+        guardarPedido();
+        Pedido.serializarPedido(App.pedidoactual, "pedido"+String.valueOf(numPedido)+".bin");
         try{
         App.setRoot("Pago");}catch(IOException ioe){
             System.out.println("No se ha podido cambiar la ventana");
@@ -112,10 +113,15 @@ public class VentanaToppingsController implements Initializable {
     }
     
     public void guardarPedido(){
-        numPedido--;
+        total+=App.pedidoactual.getBase1().getPrecioBase();
+        for(Topping t:toppingselec){
+            total+=t.getPrecioTopping();
+        }
+        for (Sabor s:App.pedidoactual.getListasabores()){
+            total+=s.getPrecioSabor();
+        }
         
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter("pedido.txt"))){
-            double total=0;
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
             String linea=numPedido+","+VentanaInicioController.clienteActual.getUsuario()+","+total+"\n";
             bf.write(linea);
         
@@ -123,6 +129,6 @@ public class VentanaToppingsController implements Initializable {
                 System.out.println(ioe.getMessage());
         
         }
-        
+       numPedido--;
     }
 }

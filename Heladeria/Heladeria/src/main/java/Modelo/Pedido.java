@@ -11,8 +11,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import proyectopoo.heladeria.App;
+import proyectopoo.heladeria.PagoController;
 import proyectopoo.heladeria.VentanaBasesController;
 import proyectopoo.heladeria.VentanaInicioController;
 import proyectopoo.heladeria.VentanaToppingsController;
@@ -27,7 +30,7 @@ public class Pedido implements Serializable, Pagable {
     Base base1;
     ArrayList<Sabor> listasabores;
     ArrayList<Topping> listatopping;
-    int n = 9999;
+    int numPago = 9999;
 
     public Pedido(Base base1, ArrayList<Sabor> listasabores, ArrayList<Topping> listatopping) {
         this.base1 = base1;
@@ -60,22 +63,29 @@ public class Pedido implements Serializable, Pagable {
         this.listatopping = listatopping;
     }
 
-    public int getN() {
-        return n;
+    public int getNumPago() {
+        return numPago;
     }
 
-    public void setN(int n) {
-        this.n = n;
-    }
 
 
 
     @Override
     public void generarTransaccion() {
-        try(BufferedWriter bf= new BufferedWriter(new FileWriter("pagos.txt"))){
-            String line=n+","+VentanaToppingsController.numPedido+","+VentanaInicioController.clienteActual.getUsuario()+",";
-            bf.write(line);
-            n--;
+        Date fecha=new Date();
+        SimpleDateFormat sd = new SimpleDateFormat("dd-MM-yyyy");
+        double totalPago=0;
+        if (PagoController.clasep.equals(TipoPago.C)){
+            totalPago=PagoController.totalTarjeta;
+        }
+        else{
+            totalPago=PagoController.totalIVA;
+        }
+        try(BufferedWriter bf= new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt"))){
+            String line=numPago+","+VentanaToppingsController.numPedido+","+VentanaInicioController.clienteActual.getUsuario()+
+                    ","+totalPago+","+sd.format(fecha)+","+String.valueOf(PagoController.clasep);
+            bf.write(line+"\n");
+            numPago--;
         }catch(IOException ioe){
             System.out.println(ioe.getMessage());
         }

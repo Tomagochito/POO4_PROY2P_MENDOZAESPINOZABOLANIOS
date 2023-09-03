@@ -8,80 +8,104 @@
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="vbpago" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.PagoController">
+<VBox fx:id="vbpago" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.PagoController">
    <children>
-      <ImageView fx:id="imvdecoracion" fitHeight="78.0" fitWidth="501.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblpago" text="PAGO" textFill="#140c72">
-         <font>
-            <Font name="System Bold" size="40.0" />
-         </font>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="40.0" />
-         </padding>
-      </Label>
-      <HBox fx:id="hbtpago" prefHeight="51.0" prefWidth="450.0" spacing="80.0">
+      <StackPane alignment="CENTER_LEFT" prefHeight="602.0" prefWidth="501.0">
          <children>
-            <RadioButton fx:id="rbefectivo" mnemonicParsing="false" text="Efectivo">
-               <toggleGroup>
-                  <ToggleGroup fx:id="tipopago" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="rbtarjeta" mnemonicParsing="false" text="Tarjeta de credito" toggleGroup="$tipopago" />
-         </children>
-         <padding>
-            <Insets left="40.0" />
-         </padding>
-      </HBox>
-      <HBox fx:id="hbdetalles" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <VBox fx:id="vblabels" prefHeight="129.0" prefWidth="168.0" spacing="10.0">
+            <Label fx:id="lblpago" text="PAGO" textFill="#140c72">
+               <font>
+                  <Font name="System Bold" size="40.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="350.0" left="40.0" />
+               </padding>
+            </Label>
+            <ImageView fx:id="imvdecoracion" fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imgvdeco" fitHeight="408.0" fitWidth="408.0" pickOnBounds="true" preserveRatio="true">
+               <StackPane.margin>
+                  <Insets bottom="20.0" left="400.0" />
+               </StackPane.margin>
+            </ImageView>
+            <HBox fx:id="hbtpago" prefHeight="51.0" prefWidth="450.0" spacing="80.0">
                <children>
-                  <Label text="Detalles de pago:">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblvalor" text="Valor a pagar:" />
-                  <Label fx:id="lbladicional" text="Adicional tarjeta:" />
-                  <Label fx:id="lbliva" text="IVA:" />
-                  <Label text="Total a pagar:" />
+                  <RadioButton fx:id="rbefectivo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="34.0" prefWidth="63.0" text="Efectivo">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="tipopago" />
+                     </toggleGroup>
+                     <HBox.margin>
+                        <Insets top="90.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <RadioButton fx:id="rbtarjeta" mnemonicParsing="false" prefHeight="17.0" prefWidth="185.0" text="Tarjeta de credito" toggleGroup="$tipopago">
+                     <HBox.margin>
+                        <Insets top="100.0" />
+                     </HBox.margin>
+                  </RadioButton>
+                  <HBox fx:id="hbbotones" alignment="BOTTOM_RIGHT" prefHeight="66.0" prefWidth="500.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="btnconfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+                        <Button fx:id="btncancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+                     </children>
+                     <padding>
+                        <Insets right="50.0" />
+                     </padding>
+                  </HBox>
                </children>
                <padding>
                   <Insets left="40.0" />
                </padding>
-            </VBox>
-            <VBox fx:id="vbtxts" prefHeight="129.0" prefWidth="347.0" spacing="8.0">
+            </HBox>
+            <HBox fx:id="hbdetalles" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="226.0" prefWidth="501.0">
                <children>
-                  <TextField fx:id="txtvalor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets top="25.0" />
-                     </VBox.margin></TextField>
-                  <TextField fx:id="txtadicional" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
-                  <TextField fx:id="txtiva" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
-                  <TextField fx:id="txttotal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                  <VBox fx:id="vblabels" prefHeight="129.0" prefWidth="168.0" spacing="10.0">
+                     <children>
+                        <Label text="Detalles de pago:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblvalor" text="Valor a pagar:" />
+                        <Label fx:id="lbladicional" text="Adicional tarjeta:" />
+                        <Label fx:id="lbliva" text="IVA:" />
+                        <Label text="Total a pagar:" />
+                     </children>
+                     <padding>
+                        <Insets left="40.0" />
+                     </padding>
+                  </VBox>
+                  <VBox fx:id="vbtxts" prefHeight="129.0" prefWidth="347.0" spacing="8.0">
+                     <children>
+                        <TextField fx:id="txtvalor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0">
+                           <VBox.margin>
+                              <Insets top="25.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="txtadicional" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                        <TextField fx:id="txtiva" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                        <TextField fx:id="txttotal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="20.0" prefWidth="200.0" />
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+               <padding>
+                  <Insets top="40.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="hbtipopago" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="381.0">
+               <children>
+                  <Label fx:id="lblmensaje" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" />
+               </children>
+               <StackPane.margin>
+                  <Insets top="150.0" />
+               </StackPane.margin>
+            </HBox>
          </children>
-      </HBox>
-      <HBox fx:id="hbtipopago" alignment="CENTER" prefHeight="44.0" prefWidth="500.0">
-         <children>
-            <Label fx:id="lblmensaje" />
-         </children>
-      </HBox>
-      <HBox fx:id="hbbotones" alignment="BOTTOM_RIGHT" prefHeight="66.0" prefWidth="500.0" spacing="20.0">
-         <children>
-            <Button fx:id="btnconfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
-            <Button fx:id="btncancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
-         </children>
-         <padding>
-            <Insets right="50.0" />
-         </padding>
-      </HBox>
+      </StackPane>
    </children>
 </VBox>

@@ -4,13 +4,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author tomas
  */
-public class Topping {
+public class Topping implements Serializable {
     public static ArrayList<Topping> toppings;
     private String nombreTopping;
     private double precioTopping;

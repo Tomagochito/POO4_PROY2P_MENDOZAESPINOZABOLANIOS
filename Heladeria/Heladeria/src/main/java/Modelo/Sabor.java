@@ -4,13 +4,14 @@
  */
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author tomas
  */
-public class Sabor {
+public class Sabor implements Serializable {
     public static ArrayList<Sabor> sabores;
     private String nombreSabor;
     private double precioSabor;
