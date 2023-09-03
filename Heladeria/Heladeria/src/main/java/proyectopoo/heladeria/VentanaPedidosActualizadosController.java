@@ -42,7 +42,7 @@ public class VentanaPedidosActualizadosController implements Initializable {
                 while (running) {
                     ArrayList<String> pedidos = ManejoArchivos.leerArchivoTexto("pedido.txt");
                     Collections.reverse( pedidos );
-                    ObservableList<String> items = FXCollections.observableArrayList(pedidos  );
+                    ObservableList<String> items = FXCollections.observableArrayList(pedidos);
                     
                     // Actualizar el ListView en el hilo de la interfaz de usuario
                     javafx.application.Platform.runLater(() -> nodoListView.setItems(items));
@@ -55,7 +55,7 @@ public class VentanaPedidosActualizadosController implements Initializable {
 
         // Crear un nuevo hilo para la tarea de actualización
         Thread actualizarThread = new Thread(actualizarTask);
-        actualizarThread.setDaemon(true); // Hacer que el hilo sea demonio
+        actualizarThread.setDaemon(true); 
         actualizarThread.start();
     }
 

@@ -168,17 +168,14 @@ public class VentanaToppingsController implements Initializable {
         for (Sabor s:App.pedidoactual.getListasabores()){
             total+=s.getPrecioSabor();
         }
-        CargandoController.pedidos.add(App.pedidoactual);
-        for(Pedido p: CargandoController.pedidos){
-         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
+         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt",true))){
             String linea=numPedido+", "+VentanaInicioController.clienteActual.getUsuario()+", "+total+"\n";
             bf.write(linea);
-        
         }catch(IOException ioe){
                 System.out.println(ioe.getMessage());
         
         }
-        }
+        
        numPedido--;
     }
 }

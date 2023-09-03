@@ -4,7 +4,10 @@
  */
 package proyectopoo.heladeria;
 
+import Modelo.ManejoArchivos;
 import Modelo.Pedido;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -27,10 +30,19 @@ public class CargandoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        pedidos = new ArrayList<>();
+        //Borra la informacion de pedidos y pagos simulando un nuevo dia de trabajo
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
+            bf.write(" ");
+        }catch(IOException ioe){
+            System.out.println("Error al actualizar informacion");
+        }
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt"))){
+            bf.write(" ");
+        }catch(IOException ioe){
+            System.out.println("Error al actualizar informacion");
+        }
         task();
     }    
-    public static ArrayList<Pedido> pedidos;
     public void task(){
         Thread hilo=new Thread(new Runnable() {
             @Override
