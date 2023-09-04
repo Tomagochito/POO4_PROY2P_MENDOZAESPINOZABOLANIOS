@@ -112,19 +112,12 @@ public class VentanaSaboresController implements Initializable {
     }
 /**
  * Metodo para ordenar la lista de sabores en orden albetico 
- * @param lista Lista de sabores a utilizar 
- * @return Lista ordenadas en forma descendente
+ * @param listaSabores 
  */
-    public ArrayList<Sabor> ordenarlista(ArrayList<Sabor> lista) {
-        ArrayList<Sabor> listaOrdenada = new ArrayList<>(lista);
-        Collections.sort(listaOrdenada, new Comparator<Sabor>() {
-            @Override
-            public int compare(Sabor sabor1, Sabor sabor2) {
-                return sabor1.getNombreSabor().compareTo(sabor2.getNombreSabor());
-            }
-        });
-        return listaOrdenada;
-    }
+public void ordenarSabores(ArrayList<Sabor> listaSabores) {
+    Collections.sort(listaSabores); // Utiliza el comparador predefinido
+}
+
     /**
      * Metodo para actualizar el label "totalsabores" y se muestre en escena el precio actulizado segun las selecciones que se hagan 
      */
@@ -145,8 +138,9 @@ private void actualizarTotal() {
  * Metodo para cargar la lista de sabores al combo box
  */
     public void cargarcombo() {
-        ArrayList<Sabor> listaordenada = new ArrayList(ordenarlista(listasabores));
-            
+        ArrayList<Sabor> listaordenada = new ArrayList(listasabores);
+        ordenarSabores(listaordenada);
+
             cbsabor1.getItems().setAll(listaordenada);
             cbsabor2.getItems().setAll(listaordenada);
             totalsabores.setText("0.00");

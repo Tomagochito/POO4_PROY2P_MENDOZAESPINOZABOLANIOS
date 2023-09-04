@@ -12,7 +12,8 @@ import java.util.ArrayList;
  * @author tomas
  */
 
-public class Sabor implements Serializable {
+public class Sabor implements Serializable, Comparable<Sabor> {
+
     /**
      * Variables
      */
@@ -70,5 +71,15 @@ public class Sabor implements Serializable {
         return this.getNombreSabor()+" - "+ String.valueOf(this.precioSabor);
     } 
 
-    
+    /**
+     * Implementación de compareTo para ordenar por nombre de sabor
+     * @param otroSabor El otro sabor con el que se compara
+     * @return Un valor negativo si este sabor es menor, cero si son iguales,
+     *         o un valor positivo si este sabor es mayor en orden alfabético.
+     */
+    @Override
+    public int compareTo(Sabor otroSabor) {
+        return this.nombreSabor.compareTo(otroSabor.nombreSabor);
+    }
+
 }
