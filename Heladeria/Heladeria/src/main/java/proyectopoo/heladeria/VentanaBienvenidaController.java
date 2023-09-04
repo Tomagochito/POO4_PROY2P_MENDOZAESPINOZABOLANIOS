@@ -30,7 +30,9 @@ import javafx.stage.Stage;
  * @author tomas
  */
 public class VentanaBienvenidaController implements Initializable {
-   
+   /**
+    * Usuario del cliente
+    */
     public static String usuarioVentana2;
     
     @FXML
@@ -49,7 +51,9 @@ public class VentanaBienvenidaController implements Initializable {
     private VBox nodoVbox2;
 
     /**
-     * Initializes the controller class.
+     * Inicializa el controlador de la clase
+     * @param url Localizacion del FXML
+     * @param rb Recursos utilizados en el controlador
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {     
@@ -64,7 +68,11 @@ public class VentanaBienvenidaController implements Initializable {
         nombreClienteB.setText(bien);    
     }    
 
-    
+    /**
+     * Muestras los locales disponibles
+     * @param event Evento al accionar el boton
+     * @throws IOException Excepcion a manejar 
+     */
     @FXML
     private void mostrarLocales(ActionEvent event) throws IOException {
         App.setRoot("VentanaUbicacion");
@@ -87,7 +95,11 @@ public class VentanaBienvenidaController implements Initializable {
         }
     }
 
-    
+    /**
+     * Cambia a la ventana de bases
+     * @param event Evento al accionar boton
+     * @throws IOException Excepcion a manejar 
+     */
     @FXML
     private void agregarBase(ActionEvent event) throws IOException{
         App.setRoot("VentanaBases");

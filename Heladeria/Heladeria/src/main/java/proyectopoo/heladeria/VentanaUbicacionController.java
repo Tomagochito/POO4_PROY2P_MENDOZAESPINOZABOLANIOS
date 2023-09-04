@@ -39,7 +39,10 @@ import javafx.scene.paint.Color;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+/**
+ * 
+ * @author Nahin Espinoza
+ */
 public class VentanaUbicacionController implements Initializable {
 
     /**

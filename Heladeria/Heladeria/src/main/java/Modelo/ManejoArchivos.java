@@ -22,7 +22,9 @@ import java.util.ArrayList;
  * @author tomas
  */
 public class ManejoArchivos {
-    
+    /**
+     * Path que lleva a la localizacion de los archivos
+     */
     public static final String rutaArchivos="src/main/resources/proyectopoo/heladeria/archivos/";
         
     /**

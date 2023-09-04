@@ -13,8 +13,17 @@ import java.util.ArrayList;
  */
 
 public class Topping implements Serializable {
+    /**
+     * Lista de los topping extraidos del archivo
+     */
     public static ArrayList<Topping> toppings;
+    /**
+     * Nombre del topping
+     */
     private String nombreTopping;
+    /**
+     * Precio del topping
+     */
     private double precioTopping;
 /**
  * Implementacion del toString

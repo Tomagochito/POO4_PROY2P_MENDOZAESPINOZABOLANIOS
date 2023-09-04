@@ -31,7 +31,11 @@ public class VentanaPedidosActualizadosController implements Initializable {
 
     private volatile boolean running = true;
     
-    
+    /**
+     * Inicializa el controlador de la clase
+     * @param url Localizacion del FXML
+     * @param rb Recursos utilizados en el controlador
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -60,7 +64,9 @@ public class VentanaPedidosActualizadosController implements Initializable {
     }
 
     
-    
+    /**
+     * Cierra el ObservableView
+     */
     public void shutdown() {
         running = false;
     }

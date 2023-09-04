@@ -27,8 +27,8 @@ public class CargandoController implements Initializable {
     private Label Lblcargando;
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
+     * @param url Localizacion del FXML
+     * @param rb Recursos usados en el controller
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -45,6 +45,9 @@ public class CargandoController implements Initializable {
         }
         task();
     }    
+    /**
+     * Corre el hilo para hacer dinamicon el label 
+     */
     public void task(){
         Thread hilo=new Thread(new Runnable() {
             @Override

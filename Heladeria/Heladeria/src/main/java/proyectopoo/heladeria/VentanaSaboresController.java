@@ -67,8 +67,17 @@ public class VentanaSaboresController implements Initializable {
   
     private ImageView imgvsabor;
     double totalpago;
+    /**
+     * Lista de sabores 
+     */
     ArrayList<Sabor> listasabores = new ArrayList<>();
+    /**
+     * Varible estatica del sabor 1
+     */
     public static Sabor sabor1;
+    /**
+     * Variable estatica del sabor 2
+     */
     public static Sabor sabor2;
 
     /**

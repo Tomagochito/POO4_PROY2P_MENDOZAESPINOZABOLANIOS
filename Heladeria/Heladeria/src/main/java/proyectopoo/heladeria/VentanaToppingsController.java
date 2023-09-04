@@ -67,7 +67,13 @@ public class VentanaToppingsController implements Initializable {
     private ImageView imgvtoppings;
     @FXML
     private ImageView imgvgif;
+    /**
+     * Lista de toppings cargados
+     */
     ArrayList<Topping> listatoppings = new ArrayList<Topping>();
+    /**
+     * Lista de toppings seleccionados
+     */
     ArrayList<Topping> toppingselec = new ArrayList<Topping>();
     private double totalAmount = 0.0;
 
