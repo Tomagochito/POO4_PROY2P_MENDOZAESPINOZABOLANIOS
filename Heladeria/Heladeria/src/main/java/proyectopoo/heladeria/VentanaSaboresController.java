@@ -67,8 +67,17 @@ public class VentanaSaboresController implements Initializable {
   
     private ImageView imgvsabor;
     double totalpago;
+    /**
+     * Lista de sabores 
+     */
     ArrayList<Sabor> listasabores = new ArrayList<>();
+    /**
+     * Varible estatica del sabor 1
+     */
     public static Sabor sabor1;
+    /**
+     * Variable estatica del sabor 2
+     */
     public static Sabor sabor2;
 
     /**
@@ -79,7 +88,7 @@ public class VentanaSaboresController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaArchivos+"bases3.png")){
+        try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaImagenes+"bases3.png")){
             Image i = new Image(f);
             imgvsabor.setImage(i);
         }catch(IOException i){
@@ -95,7 +104,7 @@ public class VentanaSaboresController implements Initializable {
      * Metodo para cargar los datos de un archivo de texto en una lista de sabores
      */
     public void cargarsabores() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "sabores.txt"))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "sabores.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
                 String[] lsabores = linea.split(",");
@@ -112,7 +121,7 @@ public class VentanaSaboresController implements Initializable {
     }
 /**
  * Metodo para ordenar la lista de sabores en orden albetico 
- * @param listaSabores 
+ * @param listaSabores La lista de sabores que se quiere ordenar
  */
 public void ordenarSabores(ArrayList<Sabor> listaSabores) {
     Collections.sort(listaSabores); // Utiliza el comparador predefinido

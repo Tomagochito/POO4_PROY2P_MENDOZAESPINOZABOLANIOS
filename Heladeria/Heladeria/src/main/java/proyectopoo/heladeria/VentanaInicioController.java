@@ -44,11 +44,26 @@ import javafx.stage.WindowEvent;
 public class VentanaInicioController implements Initializable {
     
     Boolean acceso=false;
+    /**
+     * Usuario del cliente
+     */
     public static String usuarioVentana1 ;
     private ArrayList<Cliente> clientesV1;
+    /**
+     * Lista de bases
+     */
     public ArrayList<Base> bases;
+    /**
+     * Lista sabores
+     */
     public ArrayList<Sabor> sabores;
+    /**
+     * Lista toppings
+     */
     public ArrayList<Topping> toppings;
+    /**
+     * Objeto Cliente duenio del pedido actual
+     */
     public static Cliente clienteActual;
     @FXML
     private StackPane nodoStackPane;
@@ -70,13 +85,15 @@ public class VentanaInicioController implements Initializable {
     private Button iniciarSesionBoton;
         
 
-    /**
-     * Metodo que inicia la ventana
-     */
+   /**
+    * Inicializa el controlador de la clase
+    * @param url Localizacion del FXML
+    * @param rb Recursos utilizados en el controlador
+    */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        try(FileInputStream fis = new FileInputStream (ManejoArchivos.rutaArchivos+"heladosVentanaInicio.png") ) {
+        try(FileInputStream fis = new FileInputStream (ManejoArchivos.rutaImagenes+"heladosVentanaInicio.png") ) {
             Image i = new Image(fis);
             nodoImageView.setImage(i);
             
@@ -113,8 +130,9 @@ public class VentanaInicioController implements Initializable {
     
     /**
      * Metodo que valida el usuario para conceder acceso a la siguiente ventana
+     * @param event Evento al accionar boton
+     * @throws IOException Excepcion a manejar
      */
-
     @FXML
     private void validarUsuario(ActionEvent event) throws IOException {
     String us = usuarioTextField.getText();

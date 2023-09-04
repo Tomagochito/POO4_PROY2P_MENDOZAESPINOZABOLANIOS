@@ -76,18 +76,22 @@ public class VentanaBasesController implements Initializable {
     private ToggleButton tboton333;
     @FXML
     private ImageView imgvbases;
-    
+    /**
+     * Variable de la base del helado
+     */
     public static Base baseElegida;
     boolean amarillo_a_verde;
 
      /**
-     * Initializes the controller class.
-     **/
+      * Inicializa el controlador de la clase
+      * @param url Localizacion del FXML
+      * @param rb Recursos utilizados en el controlador
+      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
        
-        try(FileInputStream in=new FileInputStream(ManejoArchivos.rutaArchivos+"base.jpg")){
+        try(FileInputStream in=new FileInputStream(ManejoArchivos.rutaImagenes+"base.jpg")){
             Image i = new Image(in);
             imgvbases.setImage(i);
         }catch(IOException ioe){
@@ -113,7 +117,10 @@ public class VentanaBasesController implements Initializable {
 
     }    
 
-         
+    /**
+     * Controla que sucede al pulsar el boton continuar
+     * @param event Evento al accionar el boton continuar
+     */     
     @FXML
     private void continuar(ActionEvent event) {
         try{    
@@ -149,8 +156,15 @@ public class VentanaBasesController implements Initializable {
 
     // dentro del boton se agrega una imagen, esta dificilisimo hacer que la calidad se mantenga,
     //no se porque luce tan punteada la imagen
+    /**
+     * Metodo para crear los botones de cada base
+     * @param archivo Informacion de las bases
+     * @param tboton  Sera el boton generado por cada base
+     * @param l Sera el label del boton de cada base
+     * @param indice *
+     */
     public void insertarDatosBoton_Precio(String archivo,ToggleButton tboton,Label l,int indice){
-       try(FileInputStream fis = new FileInputStream (new File(ManejoArchivos.rutaArchivos+archivo) )){    
+       try(FileInputStream fis = new FileInputStream (new File(ManejoArchivos.rutaImagenes+archivo) )){    
         Image imagen = new Image(fis);        
         ImageView imagenEnBoton = new ImageView(imagen);
         imagenEnBoton.setPreserveRatio(true);       
@@ -166,7 +180,10 @@ public class VentanaBasesController implements Initializable {
        }
     }
 
-            
+    /**
+     * Deselecciona la base que ha sido seleccionada
+     * @param ae Evento al accionar uno de los botones de la base
+     */
     private void DeseleccionarAnteriorSeleccion(ActionEvent ae){
         ToggleButton botonCausaEvento = (ToggleButton) ae.getSource();
         System.out.println("estaseleccionado?"+botonCausaEvento.isSelected()+" "+botonCausaEvento.getText());
@@ -194,7 +211,11 @@ public class VentanaBasesController implements Initializable {
         }
         
     }
-    
+    /**
+     * Guarda la base del helado
+     * @param ae Evento al accionar uno de los botones de la base
+
+     */
     private void ActualizarBaseElegida(ActionEvent ae){
         
         ToggleButton botonCausaEvento = (ToggleButton) ae.getSource();
@@ -222,7 +243,10 @@ public class VentanaBasesController implements Initializable {
  
     }
 
-    
+    /**
+     * Cambia el estilo de los botones
+     * @param tb Boton que se cambiara
+     */
     private void cambiarEstilos(ToggleButton tb){
         if( tb.getText() .equals( tboton331.getText() ) && !amarillo_a_verde ){
             tboton331.getStyleClass().remove("estiloBotonVerde");
@@ -257,20 +281,29 @@ public class VentanaBasesController implements Initializable {
         
     
     }
-    
+    /**
+     * Cambia el color de lo boton1
+     * @param event Evento al accionar el boton
+     */
     @FXML
     private void cambiarColortb1(ActionEvent event) {
         
         DeseleccionarAnteriorSeleccion(event);
         ActualizarBaseElegida(event);
     }
-
+    /**
+     * Cambia el color de lo boton2
+     * @param event Evento al accionar el boton
+     */
     @FXML
     private void cambiarColortb2(ActionEvent event) {
         DeseleccionarAnteriorSeleccion(event);
         ActualizarBaseElegida(event);
     }
-
+    /**
+     * Cambia el color de lo boton3
+     * @param event Evento al accionar el boton
+     */
     @FXML
     private void cambiarColortb3(ActionEvent event) {
         DeseleccionarAnteriorSeleccion(event);

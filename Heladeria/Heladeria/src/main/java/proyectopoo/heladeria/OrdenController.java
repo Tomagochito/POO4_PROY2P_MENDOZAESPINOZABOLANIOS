@@ -32,13 +32,13 @@ public class OrdenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaArchivos+"banner.png")){
+        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaImagenes+"banner.png")){
             Image image=new Image(in);
             imgvdeco.setImage(image);
         }catch(Exception e){
             System.out.println("Erro al cargar imagen");
         }
-        try(FileInputStream in2 = new FileInputStream(ManejoArchivos.rutaArchivos+"F.gif")){
+        try(FileInputStream in2 = new FileInputStream(ManejoArchivos.rutaImagenes+"F.gif")){
             Image image2=new Image(in2);
             imgvgif.setImage(image2);
         }catch(Exception e){

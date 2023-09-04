@@ -22,8 +22,12 @@ import java.util.ArrayList;
  * @author tomas
  */
 public class ManejoArchivos {
-    
-    public static final String rutaArchivos="src/main/resources/proyectopoo/heladeria/archivos/";
+    /**
+     * Path que lleva a la localizacion de los archivos
+     */
+    public static final String rutaArchivos="archivos/";
+    public static final String rutaImagenes="imagenes/";
+
         
     /**
      * 
@@ -32,7 +36,7 @@ public class ManejoArchivos {
      */
     public static ArrayList<String> leerArchivoTexto(String nombre_archivo){
         ArrayList<String> informacion = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaArchivos + nombre_archivo)) ) ){
+        try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaImagenes + nombre_archivo)) ) ){
             String datos = br.readLine();
             while(datos!=null){
                 informacion.add(datos);

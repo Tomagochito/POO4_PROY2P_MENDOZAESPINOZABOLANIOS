@@ -15,11 +15,16 @@ import java.util.ArrayList;
 public class Sabor implements Serializable, Comparable<Sabor> {
 
     /**
-     * Variables
+     * Lista estatica de sabores
      */
-    
     public static ArrayList<Sabor> sabores;
+    /**
+     * Nombre del sabor
+     */
     private String nombreSabor;
+    /**
+     * Precio del sabor
+     */
     private double precioSabor;
     
     /**

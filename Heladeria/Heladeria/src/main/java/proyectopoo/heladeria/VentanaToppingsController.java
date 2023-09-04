@@ -67,7 +67,13 @@ public class VentanaToppingsController implements Initializable {
     private ImageView imgvtoppings;
     @FXML
     private ImageView imgvgif;
+    /**
+     * Lista de toppings cargados
+     */
     ArrayList<Topping> listatoppings = new ArrayList<Topping>();
+    /**
+     * Lista de toppings seleccionados
+     */
     ArrayList<Topping> toppingselec = new ArrayList<Topping>();
     private double totalAmount = 0.0;
 
@@ -79,13 +85,13 @@ public class VentanaToppingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        try (FileInputStream f = new FileInputStream(ManejoArchivos.rutaArchivos + "bases3.png")) {
+        try (FileInputStream f = new FileInputStream(ManejoArchivos.rutaImagenes + "bases3.png")) {
             Image i = new Image(f);
             imgvtoppings.setImage(i);
         } catch (IOException i) {
             System.out.println("Error al cargar imagen");
         }
-        try (FileInputStream g = new FileInputStream(ManejoArchivos.rutaArchivos + "L.gif")) {
+        try (FileInputStream g = new FileInputStream(ManejoArchivos.rutaImagenes + "L.gif")) {
             Image im = new Image(g);
             imgvgif.setImage(im);
         } catch (IOException i) {
@@ -100,7 +106,7 @@ public class VentanaToppingsController implements Initializable {
      * Carga los toppings del archivo de toppings.
      */
     public void cargartoppings() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "toppings.txt"))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "toppings.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
                 String[] ltoppings = linea.split(",");
@@ -178,7 +184,7 @@ public class VentanaToppingsController implements Initializable {
         for (Sabor s : App.pedidoactual.getListasabores()) {
             total += s.getPrecioSabor();
         }
-         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt",true))){
+         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pedido.txt",true))){
             String linea=numPedido+", "+VentanaInicioController.clienteActual.getUsuario()+", "+total+"\n";
             bf.write(linea);
         }catch(IOException ioe){

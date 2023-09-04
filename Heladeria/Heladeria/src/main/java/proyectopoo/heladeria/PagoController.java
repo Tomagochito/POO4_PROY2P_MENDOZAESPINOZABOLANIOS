@@ -107,13 +107,13 @@ public class PagoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaArchivos+"pago.jpg")){
+        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaImagenes+"pago.jpg")){
             Image image=new Image(in);
             imvdecoracion.setImage(image);
         }catch(Exception e){
             System.out.println("Erro al cargar imagen");
         }
-        try(FileInputStream in2 = new FileInputStream(ManejoArchivos.rutaArchivos+"money.gif")){
+        try(FileInputStream in2 = new FileInputStream(ManejoArchivos.rutaImagenes+"money.gif")){
             Image image2=new Image(in2);
             imgvdeco.setImage(image2);
         }catch(Exception e){

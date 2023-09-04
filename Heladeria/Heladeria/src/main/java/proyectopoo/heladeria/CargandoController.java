@@ -16,6 +16,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -25,26 +27,35 @@ import javafx.scene.control.Label;
 public class CargandoController implements Initializable {
     @FXML
     private Label Lblcargando;
+    @FXML
+    private ImageView ivfondo;
+    @FXML
+    private ImageView ivcentro;
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
+     * @param url Localizacion del FXML
+     * @param rb Recursos usados en el controller
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+//        Image img = new Image(ManejoArchivos.rutaImagenes+"cargando.gif");
+//                    ivcentro.setImage(img);
         //Borra la informacion de pedidos y pagos simulando un nuevo dia de trabajo
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pedido.txt"))){
             bf.write(" ");
         }catch(IOException ioe){
             System.out.println("Error al actualizar informacion");
         }
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt"))){
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pagos.txt"))){
             bf.write(" ");
         }catch(IOException ioe){
             System.out.println("Error al actualizar informacion");
         }
         task();
     }    
+    /**
+     * Corre el hilo para hacer dinamicon el label 
+     */
     public void task(){
         Thread hilo=new Thread(new Runnable() {
             @Override
@@ -65,6 +76,8 @@ public class CargandoController implements Initializable {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
+                    
+                   
                     Lblcargando.setText(contador);
                 }
             });

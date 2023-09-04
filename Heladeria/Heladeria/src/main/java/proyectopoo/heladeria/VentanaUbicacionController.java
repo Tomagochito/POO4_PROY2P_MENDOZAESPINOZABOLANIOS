@@ -39,14 +39,17 @@ import javafx.scene.paint.Color;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+/**
+ * 
+ * @author Nahin Espinoza
+ */
 public class VentanaUbicacionController implements Initializable {
 
     /**
      * Variables
      */
     private ArrayList<Local> locales = new ArrayList<>();
-    String rutamapa = ManejoArchivos.rutaArchivos + "baseYogurt.png";
+    String rutamapa = ManejoArchivos.rutaImagenes + "baseYogurt.png";
 
     @FXML
     private Pane root1;
@@ -69,7 +72,7 @@ public class VentanaUbicacionController implements Initializable {
      * Metodo para cargar la imagen del fondo de la escena
      */
     public void CargarFondo() {
-        try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaArchivos + "mapa.png")) {
+        try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaImagenes + "mapa.png")) {
             Image imgmapa = new Image(input);
             iv.setImage(imgmapa);
             iv.setFitHeight(800);
@@ -92,7 +95,7 @@ public class VentanaUbicacionController implements Initializable {
     public void CargarImagenes() {
         Thread t = new Thread(new Runnable() {
             public void run() {
-                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt", StandardCharsets.UTF_8))) {
+                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "locales.txt", StandardCharsets.UTF_8))) {
                     String linea;
                     while ((linea = bf.readLine()) != null) {
                         String[] datos = linea.split(",");
@@ -133,7 +136,7 @@ public class VentanaUbicacionController implements Initializable {
      * @param horarioslocal Los horarios de inicio y cierre del local 
      */
     public void cargarLocales(Double ejex, Double ejey, String direccion, String horarioslocal) {
-        try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaArchivos + "heladomapa2.png")) {
+        try (FileInputStream input = new FileInputStream(ManejoArchivos.rutaImagenes + "heladomapa2.png")) {
             Image imgLocal = new Image(input);
 
             ImageView imageView1 = new ImageView(imgLocal);
