@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -154,6 +155,7 @@ public class VentanaToppingsController implements Initializable {
         App.setRoot("Pago");}catch(IOException ioe){
             System.out.println("No se ha podido cambiar la ventana");
         }
+        
     }
     /**
      * Metodo llamado por botonContinuar() para guardar el pedido en el 
