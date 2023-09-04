@@ -5,10 +5,14 @@
 package proyectopoo.heladeria;
 
 /**
- *
- * @author User
+ * Clase para generar el ejecutable
+ * @author Nahin Espinoza
  */
 public class Iniciador {
+    /**
+     * 
+     * @param args * 
+     */
     public static void main(String[] args) {
         App.main(args);
     }

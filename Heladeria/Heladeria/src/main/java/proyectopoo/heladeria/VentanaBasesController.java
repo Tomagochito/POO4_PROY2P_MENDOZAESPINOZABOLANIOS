@@ -89,7 +89,7 @@ public class VentanaBasesController implements Initializable {
       */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        baseElegida=null;
        
         try(FileInputStream in=new FileInputStream(ManejoArchivos.rutaImagenes+"base.jpg")){
             Image i = new Image(in);

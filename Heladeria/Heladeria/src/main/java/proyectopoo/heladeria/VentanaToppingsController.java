@@ -85,6 +85,7 @@ public class VentanaToppingsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        total=VentanaSaboresController.totalpago;
         try (FileInputStream f = new FileInputStream(ManejoArchivos.rutaImagenes + "bases3.png")) {
             Image i = new Image(f);
             imgvtoppings.setImage(i);
@@ -157,7 +158,7 @@ public class VentanaToppingsController implements Initializable {
      * Metodo del boton continuar en la ventana topping, se utiliza para generar
      * el pedido del cliente y guardarlo en un archivo, para luego cambiar a la
      * ventana pago
-     * @param e 
+     * @param e Evento del boton continuar
      */
     @FXML
     public void botonContinuar(ActionEvent e) {

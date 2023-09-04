@@ -68,7 +68,7 @@ public class VentanaSaboresController implements Initializable {
     /**
      * Varianlo del total en la ventana sabores
      */
-    public static double totalpago=0.0;
+    public static double totalpago;
     /**
      * Lista de sabores 
      */
@@ -90,6 +90,7 @@ public class VentanaSaboresController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        totalpago=0;
         try(FileInputStream f=new FileInputStream(ManejoArchivos.rutaImagenes+"bases3.png")){
             Image i = new Image(f);
             imgvsabor.setImage(i);

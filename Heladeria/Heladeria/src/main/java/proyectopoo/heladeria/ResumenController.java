@@ -41,6 +41,7 @@ public class ResumenController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        totalResumen=VentanaToppingsController.total;
         try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaImagenes+"banner.png")){
             Image i = new Image(in);
             imgvfondo.setImage(i);
@@ -73,7 +74,7 @@ public class ResumenController implements Initializable {
     /**
      * Total calculado en la ventana resumen
      */
-    public static double totalResumen=VentanaToppingsController.total;
+    public static double totalResumen=0;
     /**
      * Metodo al accionar el boton eliminar
      */
@@ -135,7 +136,7 @@ public class ResumenController implements Initializable {
      */
     public void cargarinfo(){
         //cargar el total
-        total.setText(String.valueOf(totalResumen));
+        total.setText("$ "+String.valueOf(totalResumen));
         //cargar listview
         String base= "Base: "+App.pedidoactual.getBase1().getNombreBase();
         listview.getItems().add(base);
@@ -174,7 +175,7 @@ public class ResumenController implements Initializable {
         else{
             msj.setText("Solo puedes eliminar sabores de tu pedido");
         }
-        total.setText(String.valueOf(totalResumen));
+        total.setText("$ "+String.valueOf(totalResumen));
     }
       /**
      * Metodo llamado por botonContinuar() para guardar el pedido en el archivo

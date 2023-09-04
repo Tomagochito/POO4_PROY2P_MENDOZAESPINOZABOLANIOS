@@ -1,1 +1,3 @@
- 
+ 9999,9998,guillermomendoza,3.962,04-09-2023,E
+9998,9997,guillermomendoza,7.1456,04-09-2023,C
+9997,9996,guillermomendoza,4.3016,04-09-2023,E

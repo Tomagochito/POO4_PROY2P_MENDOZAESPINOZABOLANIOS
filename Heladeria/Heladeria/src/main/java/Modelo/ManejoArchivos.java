@@ -25,7 +25,13 @@ public class ManejoArchivos {
     /**
      * Path que lleva a la localizacion de los archivos
      */
+    /**
+     * Ruta de los archivos del proyecto
+     */
     public static final String rutaArchivos="archivos/";
+    /**
+     * Ruta de las imagenes del proyecto
+     */
     public static final String rutaImagenes="imagenes/";
 
         
