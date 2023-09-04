@@ -106,7 +106,7 @@ public class VentanaToppingsController implements Initializable {
      * Carga los toppings del archivo de toppings.
      */
     public void cargartoppings() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "toppings.txt"))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "toppings.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
                 String[] ltoppings = linea.split(",");
@@ -184,7 +184,7 @@ public class VentanaToppingsController implements Initializable {
         for (Sabor s : App.pedidoactual.getListasabores()) {
             total += s.getPrecioSabor();
         }
-         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pedido.txt",true))){
+         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt",true))){
             String linea=numPedido+", "+VentanaInicioController.clienteActual.getUsuario()+", "+total+"\n";
             bf.write(linea);
         }catch(IOException ioe){

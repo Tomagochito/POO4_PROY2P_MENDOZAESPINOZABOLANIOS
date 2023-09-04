@@ -95,7 +95,7 @@ public class VentanaUbicacionController implements Initializable {
     public void CargarImagenes() {
         Thread t = new Thread(new Runnable() {
             public void run() {
-                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "locales.txt", StandardCharsets.UTF_8))) {
+                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt", StandardCharsets.UTF_8))) {
                     String linea;
                     while ((linea = bf.readLine()) != null) {
                         String[] datos = linea.split(",");

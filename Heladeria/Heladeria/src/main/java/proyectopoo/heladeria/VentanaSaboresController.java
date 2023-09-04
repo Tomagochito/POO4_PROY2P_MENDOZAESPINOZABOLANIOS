@@ -104,7 +104,7 @@ public class VentanaSaboresController implements Initializable {
      * Metodo para cargar los datos de un archivo de texto en una lista de sabores
      */
     public void cargarsabores() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaImagenes + "sabores.txt"))) {
+        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "sabores.txt"))) {
             String linea;
             while ((linea = bf.readLine()) != null) {
                 String[] lsabores = linea.split(",");

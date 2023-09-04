@@ -1,3 +1,0 @@
-yogurt,1.50
-helado,2.00
-vegano,2.50

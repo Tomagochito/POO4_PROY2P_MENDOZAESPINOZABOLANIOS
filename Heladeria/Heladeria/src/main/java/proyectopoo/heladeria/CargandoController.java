@@ -7,6 +7,7 @@ package proyectopoo.heladeria;
 import Modelo.ManejoArchivos;
 import Modelo.Pedido;
 import java.io.BufferedWriter;
+import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
@@ -28,9 +29,9 @@ public class CargandoController implements Initializable {
     @FXML
     private Label Lblcargando;
     @FXML
-    private ImageView ivfondo;
+    private ImageView imgvfondo;
     @FXML
-    private ImageView ivcentro;
+    private ImageView imgvcentro;
     /**
      * Initializes the controller class.
      * @param url Localizacion del FXML
@@ -38,15 +39,24 @@ public class CargandoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        Image img = new Image(ManejoArchivos.rutaImagenes+"cargando.gif");
-//                    ivcentro.setImage(img);
+        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaImagenes+"fondocargando.png")){
+            Image i = new Image(in);
+            imgvfondo.setImage(i);
+        }catch(IOException ioe){
+            System.out.println("Error al cargar imagen");}
+        try(FileInputStream in = new FileInputStream(ManejoArchivos.rutaImagenes+"cargando.gif")){
+            Image i = new Image(in);
+            imgvcentro.setImage(i);
+        }catch(IOException ioe){
+            System.out.println("Error al cargar gif");}
+
         //Borra la informacion de pedidos y pagos simulando un nuevo dia de trabajo
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pedido.txt"))){
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt"))){
             bf.write(" ");
         }catch(IOException ioe){
             System.out.println("Error al actualizar informacion");
         }
-        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaImagenes+"pagos.txt"))){
+        try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt"))){
             bf.write(" ");
         }catch(IOException ioe){
             System.out.println("Error al actualizar informacion");

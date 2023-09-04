@@ -36,7 +36,7 @@ public class ManejoArchivos {
      */
     public static ArrayList<String> leerArchivoTexto(String nombre_archivo){
         ArrayList<String> informacion = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaImagenes + nombre_archivo)) ) ){
+        try(BufferedReader br = new BufferedReader ( new FileReader  (new File (rutaArchivos + nombre_archivo)) ) ){
             String datos = br.readLine();
             while(datos!=null){
                 informacion.add(datos);

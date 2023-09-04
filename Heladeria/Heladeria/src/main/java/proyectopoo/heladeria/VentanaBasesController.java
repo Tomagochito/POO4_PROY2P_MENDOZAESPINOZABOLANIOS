@@ -223,7 +223,7 @@ public class VentanaBasesController implements Initializable {
         VBox vbox = (VBox) botonCausaEvento.getParent();
         String nombreBase = botonCausaEvento.getText();
         Label l = (Label) vbox.getChildren().get(1);
-        double precio = Double.parseDouble ( l.getText() );
+        double precio = Double.parseDouble (l.getText());
         total.setText( Double.toString(precio) + "0" );
         if(baseElegida!= null){
             if(  baseElegida.equals( new Base (nombreBase,precio) ) == true){
