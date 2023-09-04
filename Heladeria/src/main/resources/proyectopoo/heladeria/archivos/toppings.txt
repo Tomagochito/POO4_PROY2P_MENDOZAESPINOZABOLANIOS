@@ -1,3 +1,0 @@
-Grageas de chocolate,0.50
-Grageas de caramelo,0.50
-Sirope de manjar,0.80
