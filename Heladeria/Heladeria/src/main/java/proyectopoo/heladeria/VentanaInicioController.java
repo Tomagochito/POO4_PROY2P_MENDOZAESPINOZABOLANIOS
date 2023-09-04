@@ -92,7 +92,8 @@ public class VentanaInicioController implements Initializable {
     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+         nombreHeladeria.setStyle("-fx-font-size: 30px; -fx-text-fill: black; -fx-font-family: 'Georgia';");
+        iceCream.setStyle("-fx-font-size: 22px; -fx-text-fill: black; -fx-font-family: 'Georgia';");
         try(FileInputStream fis = new FileInputStream (ManejoArchivos.rutaImagenes+"heladosVentanaInicio.png") ) {
             Image i = new Image(fis);
             nodoImageView.setImage(i);
