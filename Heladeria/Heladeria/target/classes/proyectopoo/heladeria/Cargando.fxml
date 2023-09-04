@@ -12,7 +12,7 @@
       <ImageView fx:id="imgvcentro" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="Lblcargando" textFill="#904da4">
          <StackPane.margin>
-            <Insets top="100.0" />
+            <Insets top="180.0" />
          </StackPane.margin>
          <font>
             <Font name="System Bold Italic" size="24.0" />

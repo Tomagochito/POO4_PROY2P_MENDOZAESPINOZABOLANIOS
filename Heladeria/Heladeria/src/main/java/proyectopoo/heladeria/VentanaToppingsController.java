@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -156,15 +157,15 @@ public class VentanaToppingsController implements Initializable {
      * Metodo del boton continuar en la ventana topping, se utiliza para generar
      * el pedido del cliente y guardarlo en un archivo, para luego cambiar a la
      * ventana pago
+     * @param e 
      */
     @FXML
-    public void botonContinuar() {
+    public void botonContinuar(ActionEvent e) {
         //Se debe generar pedido y guardar en pedidotxt
         App.pedidoactual.setListatopping(toppingselec);
-        guardarPedido();
-        Pedido.serializarPedido(App.pedidoactual, "pedido" + String.valueOf(numPedido) + ".bin");
+        calcularTotal();
         try {
-            App.setRoot("Pago");
+            App.setRoot("Resumen");
         } catch (IOException ioe) {
             System.out.println("No se ha podido cambiar la ventana");
         }
@@ -175,7 +176,7 @@ public class VentanaToppingsController implements Initializable {
      * Metodo llamado por botonContinuar() para guardar el pedido en el archivo
      * pedido.txt, tambien calcula el total sin incluir el IVA.
      */
-    public void guardarPedido() {
+    public void calcularTotal() {
         total = 0.0;
         total += App.pedidoactual.getBase1().getPrecioBase();
         for (Topping t : toppingselec) {
@@ -184,13 +185,5 @@ public class VentanaToppingsController implements Initializable {
         for (Sabor s : App.pedidoactual.getListasabores()) {
             total += s.getPrecioSabor();
         }
-         try(BufferedWriter bf=new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pedido.txt",true))){
-            String linea=numPedido+", "+VentanaInicioController.clienteActual.getUsuario()+", "+total+"\n";
-            bf.write(linea);
-        }catch(IOException ioe){
-
-                System.out.println(ioe.getMessage());
-            }
-        numPedido--;
     }
 }

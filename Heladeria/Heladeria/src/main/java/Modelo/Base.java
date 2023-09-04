@@ -90,7 +90,5 @@ public boolean equals(Object obj) {
     String nombreBase1 = this.getNombreBase().trim();
     String nombreBase2 = base.getNombreBase().trim();
     return nombreBase1.equalsIgnoreCase(nombreBase2);
-}
-
-
+    } 
 }
