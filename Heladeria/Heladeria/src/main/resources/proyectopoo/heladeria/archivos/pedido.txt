@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 9998, guillermomendoza, 4.8
 
@@ -5,3 +6,6 @@
 9999, nahinespinoza, 4.8
 9998, guillermomendoza, 4.5
 9998, guillermomendoza, 4.5
+=======
+ 9999, guillermomendoza, 7.0
+>>>>>>> b5f7d5d5ca5be8cb5ca41bfe8b4fcfa1ce749739

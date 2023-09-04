@@ -121,7 +121,7 @@ public class Pedido implements Serializable, Pagable {
         else{
             totalPago=PagoController.totalIVA;
         }
-        try(BufferedWriter bf= new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt"))){
+        try(BufferedWriter bf= new BufferedWriter(new FileWriter(ManejoArchivos.rutaArchivos+"pagos.txt",true))){
             String line=numPago+","+VentanaToppingsController.numPedido+","+VentanaInicioController.clienteActual.getUsuario()+
                     ","+totalPago+","+sd.format(fecha)+","+String.valueOf(PagoController.clasep);
             bf.write(line+"\n");

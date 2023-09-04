@@ -5,18 +5,27 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.CargandoController">
    <children>
+      <ImageView fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@archivos/fondocargando.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@archivos/cargando.gif" />
          </image>
       </ImageView>
-      <Label fx:id="Lblcargando">
+      <Label fx:id="Lblcargando" textFill="#904da4">
          <StackPane.margin>
             <Insets top="100.0" />
          </StackPane.margin>
+         <font>
+            <Font name="System Bold Italic" size="24.0" />
+         </font>
       </Label>
    </children>
 </StackPane>

@@ -71,7 +71,7 @@ public class VentanaBienvenidaController implements Initializable {
             //Hilo para que en 30 segundos vuelva a la ventana anterior para continuar con el pedido
         Thread regresar = new Thread(() -> {
             try {
-                Thread.sleep(30000);
+                Thread.sleep(60000);
                 Platform.runLater(() -> volverAventanaAnterior());
             } catch (InterruptedException ex) {
                 ex.printStackTrace();

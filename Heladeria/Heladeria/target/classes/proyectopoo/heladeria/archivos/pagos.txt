@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 9998,9997,guillermomendoza,5.094,03-09-2023,E
+=======
+ 9999,9998,guillermomendoza,7.924,03-09-2023,E
+>>>>>>> b5f7d5d5ca5be8cb5ca41bfe8b4fcfa1ce749739
