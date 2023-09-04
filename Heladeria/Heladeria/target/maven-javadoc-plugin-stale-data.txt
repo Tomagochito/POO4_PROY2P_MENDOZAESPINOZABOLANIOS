@@ -1,0 +1,58 @@
+@options
+@packages
+-classpath
+'C:/Users/User/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-win.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar;C:/Users/User/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+-sourcepath
+'C:/Users/User/Desktop/POO/-----PROYECTO 2-------/PROYECTO 2P ENTREGABLE/Dentro es el pull/POO4_PROY2P_MENDOZAESPINOZABOLANIOS/Heladeria/Heladeria/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2023. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/User/Desktop/POO/-----PROYECTO 2-------/PROYECTO 2P ENTREGABLE/Dentro es el pull/POO4_PROY2P_MENDOZAESPINOZABOLANIOS/Heladeria/Heladeria/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Heladeria 1.0-SNAPSHOT API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/User/Desktop/POO/-----PROYECTO 2-------/PROYECTO 2P ENTREGABLE/Dentro es el pull/POO4_PROY2P_MENDOZAESPINOZABOLANIOS/Heladeria/Heladeria/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Heladeria 1.0-SNAPSHOT API'
+Modelo
+proyectopoo.heladeria
+C:\Users\User\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar = 1690854140219
+C:\Users\User\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar = 1690854141022
+C:\Users\User\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar = 1690854140543
+C:\Users\User\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar = 1690854141484
+C:\Users\User\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar = 1690854140539
+C:\Users\User\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar = 1690854140455
+C:\Users\User\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar = 1690854140615
+C:\Users\User\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar = 1690854140988
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\src\main\java = 1693632757877
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\allclasses-index.html = 1693788748078
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\allpackages-index.html = 1693788748081
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\constant-values.html = 1693788747945
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\element-list = 1693788747900
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\help-doc.html = 1693788748124
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\index-all.html = 1693788748117
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\index.html = 1693788748060
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\jquery-ui.overrides.css = 1693788748142
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\member-search-index.js = 1693788748088
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\module-search-index.js = 1693788748083
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\overview-summary.html = 1693788748119
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\overview-tree.html = 1693788748056
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\package-search-index.js = 1693788748085
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\script.js = 1693788748128
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\search.js = 1693788748130
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\serialized-form.html = 1693788747963
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\stylesheet.css = 1693788748126
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\tag-search-index.js = 1693788748089
+C:\Users\User\Desktop\POO\-----PROYECTO 2-------\PROYECTO 2P ENTREGABLE\Dentro es el pull\POO4_PROY2P_MENDOZAESPINOZABOLANIOS\Heladeria\Heladeria\target\site\apidocs\type-search-index.js = 1693788748086

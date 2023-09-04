@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 
 public class App extends Application {
-            //public static ArrayList<Pedido> pedidos;
 
         public static Pedido pedidoactual = new Pedido(null,null,null);
     
