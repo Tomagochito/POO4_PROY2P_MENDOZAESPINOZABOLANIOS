@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" stylesheets="@archivos/estilos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
+<VBox fx:id="nodoVbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBasesController">
    <children>
       <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0">
          <children>
             <ImageView fx:id="imgvbases" fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
             <HBox fx:id="nodoHbox32" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="350.0">
                <children>
-                  <Label prefHeight="32.0" prefWidth="311.0" styleClass="labelTituloGrandeVB" text="Paso 1: Escoge tu base" textFill="#e85ea1">
+                  <Label prefHeight="32.0" prefWidth="311.0" style="-fx-text-fill: #e85ea1;" styleClass="labelTituloGrandeVB" text="Paso 1: Escoge tu base" textFill="#e85ea1">
                      <font>
-                        <Font name="System Bold Italic" size="20.0" />
+                        <Font name="System Bold Italic" size="28.0" />
                      </font>
                   </Label>
                </children>
@@ -32,7 +32,10 @@
                   <VBox fx:id="nodoVbox331" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                      <children>
                         <ToggleButton fx:id="tboton331" mnemonicParsing="false" onAction="#cambiarColortb1" prefHeight="111.0" prefWidth="137.0" text="ToggleButton" />
-                        <Label fx:id="nodoLabelprecio1" styleClass="labelTituloPequenioVB" text="Label" />
+                        <Label fx:id="nodoLabelprecio1" styleClass="labelTituloPequenioVB" text="Label" textFill="RED">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets top="20.0" />
@@ -44,7 +47,10 @@
                   <VBox fx:id="nodoVbox332" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                      <children>
                         <ToggleButton fx:id="tboton332" mnemonicParsing="false" onAction="#cambiarColortb2" prefHeight="111.0" prefWidth="137.0" text="ToggleButton" />
-                        <Label fx:id="nodoLabelprecio2" styleClass="labelTituloPequenioVB" text="Label" />
+                        <Label fx:id="nodoLabelprecio2" styleClass="labelTituloPequenioVB" text="Label" textFill="RED">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets top="20.0" />
@@ -56,7 +62,10 @@
                   <VBox fx:id="nodoVbox333" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="274.0" spacing="15.0">
                      <children>
                         <ToggleButton fx:id="tboton333" mnemonicParsing="false" onAction="#cambiarColortb3" prefHeight="111.0" prefWidth="137.0" text="ToggleButton" />
-                        <Label fx:id="nodoLabelprecio3" styleClass="labelTituloPequenioVB" text="Label" />
+                        <Label fx:id="nodoLabelprecio3" styleClass="labelTituloPequenioVB" text="Label" textFill="RED">
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font></Label>
                      </children>
                      <padding>
                         <Insets top="20.0" />
@@ -77,15 +86,21 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Label styleClass="labelTituloMedianoVB" text="Valor a pagar:">
+                        <Label styleClass="labelTituloMedianoVB" text="Valor a pagar:" textFill="#e85ea1">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="22.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="total" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="Label">
+                        <Label fx:id="total" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="Label" textFill="RED">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
                         </Label>
                      </children>
                      <HBox.margin>
@@ -94,10 +109,13 @@
                   </HBox>
                   <VBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="107.0">
                      <children>
-                        <Button fx:id="botonContinuar" mnemonicParsing="false" onAction="#continuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstiloVerde" text="Continuar">
+                        <Button fx:id="botonContinuar" mnemonicParsing="false" onAction="#continuar" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: #00A693; -fx-text-fill: black;" styleClass="botonEstiloVerde" text="Continuar">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
                         </Button>
                      </children>
                      <HBox.margin>

@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <StackPane fx:id="nodoStackPane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" stylesheets="@archivos/estilos.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.VentanaBienvenidaController">
    <children>
@@ -18,19 +19,28 @@
                      <children>
                         <VBox alignment="CENTER" prefHeight="100.0" prefWidth="485.0">
                            <children>
-                              <Label fx:id="nombreClienteB" styleClass="labelTituloMediano" text="Bienvenida/o, " />
+                              <Label fx:id="nombreClienteB" style="-fx-text-fill: black;" styleClass="labelTituloMediano" text="Bienvenida/o, ">
+                                 <font>
+                                    <Font name="Georgia" size="22.0" />
+                                 </font></Label>
                            </children>
                         </VBox>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="localesBoton" mnemonicParsing="false" onAction="#mostrarLocales" prefHeight="31.0" prefWidth="150.0" styleClass="botonEstilo" text="Encuentra nuestros locales" />
+                        <Button fx:id="localesBoton" mnemonicParsing="false" onAction="#mostrarLocales" prefHeight="32.0" prefWidth="203.0" style="-fx-background-color: #00A693; -fx-text-fill: black; -fx-font-size: 15px;" styleClass="botonEstilo" text="Encuentra nuestros locales">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button fx:id="pedidosBoton" mnemonicParsing="false" onAction="#agregarBase" prefHeight="31.0" prefWidth="150.0" styleClass="botonEstilo" text="Haz tus Pedidos" />
+                        <Button fx:id="pedidosBoton" mnemonicParsing="false" onAction="#agregarBase" prefHeight="32.0" prefWidth="208.0" style="-fx-background-color: #00A693; -fx-text-fill: black; -fx-font-size: 15px;" styleClass="botonEstilo" text="Haz tus Pedidos">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                </children>

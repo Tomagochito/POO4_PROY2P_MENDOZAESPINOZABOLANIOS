@@ -1,0 +1,55 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.botonEstilo {
+    -fx-font-size: 15px; /* Tamaño de fuente */
+    -fx-background-color: #00A693;
+    -fx-text-fill: black ;   
+}
+.botonEstiloVerde {
+    -fx-font-size: 16px; /* Tamaño de fuente */
+    -fx-background-color: #00A693;
+    -fx-text-fill: black ;   
+}
+
+.botonEstiloAmarillo {
+    -fx-font-size: 16px; /* Tamaño de fuente */
+    -fx-background-color: #F7FF88;
+    -fx-text-fill: black ;    
+}
+
+.labelTituloGrande{
+    -fx-font-size: 30px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
+
+.labelTituloMediano{
+    -fx-font-size: 22px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
+
+.labelTituloPequenio{
+    -fx-font-size: 18px; /* Tamaño de fuente */
+    -fx-text-fill: black;
+    -fx-font-family:"Georgia";
+}
+.labelTituloGrandeVB{
+    -fx-font-size: 28px; /* Tamaño de fuente */
+    -fx-text-fill: #e85ea1;
+    -fx-font-family:"Georgia";
+}
+.labelTituloMedianoVB{
+    -fx-font-size: 22px; /* Tamaño de fuente */
+    -fx-text-fill: #e85ea1;
+    -fx-font-family:"Georgia";
+}
+.labelTituloPequenioVB{
+    -fx-font-size: 16px; /* Tamaño de fuente */
+    -fx-text-fill: red;
+    -fx-font-family:"Georgia";
+    
+}
+

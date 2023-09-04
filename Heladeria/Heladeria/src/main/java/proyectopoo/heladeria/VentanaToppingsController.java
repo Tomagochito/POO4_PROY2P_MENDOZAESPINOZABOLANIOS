@@ -48,7 +48,7 @@ public class VentanaToppingsController implements Initializable {
      * Variable estatica del total sin adicionar del IVA, permitiendo acceder a
      * ella desde otras clases del proyecto
      */
-    public static double total;
+    public static double total=VentanaSaboresController.totalpago;
 
     @FXML
     private VBox root_toppings;
@@ -76,7 +76,6 @@ public class VentanaToppingsController implements Initializable {
      * Lista de toppings seleccionados
      */
     ArrayList<Topping> toppingselec = new ArrayList<Topping>();
-    private double totalAmount = 0.0;
 
     /**
      *
@@ -98,6 +97,7 @@ public class VentanaToppingsController implements Initializable {
         } catch (IOException i) {
             System.out.println("Error al cargar imagen");
         }
+        totaltoppings.setText(String.valueOf(total));
         cargartoppings();
         crearcheckbox();
 
@@ -144,13 +144,13 @@ public class VentanaToppingsController implements Initializable {
      */
     public void recuperartoppings(CheckBox ch, Topping tp) {
         if (ch.isSelected()) {
-            totalAmount += tp.getPrecioTopping();
+            total += tp.getPrecioTopping();
             toppingselec.add(tp);
         } else {
-            totalAmount -= tp.getPrecioTopping();
+            total -= tp.getPrecioTopping();
             toppingselec.remove(tp);
         }
-        totaltoppings.setText("$ " + totalAmount);
+        totaltoppings.setText("$ " + total);
     }
 
     /**
@@ -163,7 +163,6 @@ public class VentanaToppingsController implements Initializable {
     public void botonContinuar(ActionEvent e) {
         //Se debe generar pedido y guardar en pedidotxt
         App.pedidoactual.setListatopping(toppingselec);
-        calcularTotal();
         try {
             App.setRoot("Resumen");
         } catch (IOException ioe) {
@@ -172,18 +171,4 @@ public class VentanaToppingsController implements Initializable {
         
     }
 
-    /**
-     * Metodo llamado por botonContinuar() para guardar el pedido en el archivo
-     * pedido.txt, tambien calcula el total sin incluir el IVA.
-     */
-    public void calcularTotal() {
-        total = 0.0;
-        total += App.pedidoactual.getBase1().getPrecioBase();
-        for (Topping t : toppingselec) {
-            total += t.getPrecioTopping();
-        }
-        for (Sabor s : App.pedidoactual.getListasabores()) {
-            total += s.getPrecioSabor();
-        }
-    }
 }

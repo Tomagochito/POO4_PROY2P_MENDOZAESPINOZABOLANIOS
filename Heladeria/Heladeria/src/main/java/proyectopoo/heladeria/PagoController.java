@@ -27,7 +27,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import static proyectopoo.heladeria.VentanaToppingsController.total;
+import static proyectopoo.heladeria.ResumenController.totalResumen;
 
 
 /**
@@ -183,13 +183,13 @@ public class PagoController implements Initializable {
      * Metodo que se llama al momento de que el cliente elige la opcion de pago en efectivo
      */
     public void pagoEfectivo(){
-     IVA=(total*0.132);
-     totalIVA=total+IVA;
+     IVA=(totalResumen*0.132);
+     totalIVA=totalResumen+IVA;
      txtadicional.clear();
      txtiva.clear();
      txttotal.clear();
      txtvalor.clear();
-     txtvalor.setText(String.valueOf(total));
+     txtvalor.setText(String.valueOf(totalResumen));
      txtvalor.setDisable(true);
      txtiva.setText(String.valueOf(IVA));
      txtiva.setDisable(true);
@@ -210,15 +210,15 @@ public class PagoController implements Initializable {
      date.setMinWidth(200);
      cv.setMinHeight(20);
      cv.setMinWidth(200);
-     IVA=(total*0.132);
-     AdicionalT=total*0.10;
-     totalIVA=total+IVA;
+     IVA=(totalResumen*0.132);
+     AdicionalT=totalResumen*0.10;
+     totalIVA=totalResumen+IVA;
      totalTarjeta=totalIVA+AdicionalT;
      txtadicional.clear();
      txtiva.clear();
      txttotal.clear();
      txtvalor.clear();
-     txtvalor.setText(String.valueOf(total));
+     txtvalor.setText(String.valueOf(totalResumen));
      txtvalor.setDisable(true);
      txtiva.setText(String.valueOf(IVA));
      txtiva.setDisable(true);

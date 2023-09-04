@@ -64,9 +64,11 @@ public class VentanaSaboresController implements Initializable {
     @FXML
     private Label totalsabores;
     @FXML
-  
     private ImageView imgvsabor;
-    double totalpago;
+    /**
+     * Varianlo del total en la ventana sabores
+     */
+    public static double totalpago=0.0;
     /**
      * Lista de sabores 
      */
@@ -133,7 +135,7 @@ public void ordenarSabores(ArrayList<Sabor> listaSabores) {
 private void actualizarTotal() {
         sabor1 = cbsabor1.getValue();
         sabor2 = cbsabor2.getValue();
-        totalpago = 0.0;
+        totalpago=App.pedidoactual.getBase1().getPrecioBase();
         if (sabor1 != null) {
             totalpago += sabor1.getPrecioSabor();
         }
@@ -149,10 +151,9 @@ private void actualizarTotal() {
     public void cargarcombo() {
         ArrayList<Sabor> listaordenada = new ArrayList(listasabores);
         ordenarSabores(listaordenada);
-
+        totalsabores.setText("$ " + App.pedidoactual.getBase1().getPrecioBase());
             cbsabor1.getItems().setAll(listaordenada);
             cbsabor2.getItems().setAll(listaordenada);
-            totalsabores.setText("0.00");
             }
 /**
  * Metodo implementado para enviar los datos de los sabores seleccionados al pedido actual y pasar a la siguiente escena 

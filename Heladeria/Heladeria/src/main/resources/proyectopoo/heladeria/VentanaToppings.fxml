@@ -21,9 +21,9 @@
             </ImageView>
             <HBox fx:id="HBox2Toppings" alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="77.0" prefWidth="353.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="434.0" styleClass="labelTituloGrandeVB" text="Paso 3: Elige los toppings">
+                  <Label alignment="CENTER" prefHeight="32.0" prefWidth="434.0" styleClass="labelTituloGrandeVB" text="Paso 3: Elige los toppings" textFill="#e85ea1">
                      <font>
-                        <Font size="46.0" />
+                        <Font name="Georgia" size="28.0" />
                      </font>
                   </Label>
                </children>
@@ -56,15 +56,21 @@
                         <Insets />
                      </opaqueInsets>
                      <children>
-                        <Label prefHeight="25.0" prefWidth="140.0" styleClass="labelTituloMedianoVB" text="Valor a pagar:">
+                        <Label prefHeight="25.0" prefWidth="140.0" styleClass="labelTituloMedianoVB" text="Valor a pagar:" textFill="#e85ea1">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="22.0" />
+                           </font>
                         </Label>
-                        <Label fx:id="totaltoppings" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="\$0.0">
+                        <Label fx:id="totaltoppings" prefHeight="43.0" prefWidth="71.0" styleClass="labelTituloPequenioVB" text="\$0.0" textFill="RED">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
+                           <font>
+                              <Font name="Georgia" size="16.0" />
+                           </font>
                         </Label>
                      </children>
                      <HBox.margin>
@@ -73,10 +79,13 @@
                   </HBox>
                   <VBox alignment="CENTER_RIGHT" prefHeight="65.0" prefWidth="350.0">
                      <children>
-                        <Button fx:id="botonContinuarToppings" mnemonicParsing="false" onAction="#botonContinuar" prefHeight="39.0" prefWidth="99.0" styleClass="botonEstiloVerde" text="Continuar">
+                        <Button fx:id="botonContinuarToppings" mnemonicParsing="false" onAction="#botonContinuar" prefHeight="39.0" prefWidth="99.0" style="-fx-background-color: #00A693; -fx-text-fill: black;" styleClass="botonEstiloVerde" text="Continuar">
                            <VBox.margin>
                               <Insets />
                            </VBox.margin>
+                           <font>
+                              <Font size="16.0" />
+                           </font>
                         </Button>
                      </children>
                   </VBox>
