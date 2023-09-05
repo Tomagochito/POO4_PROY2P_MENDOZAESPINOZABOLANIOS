@@ -13,21 +13,16 @@ import java.util.ArrayList;
  */
 public class Base implements Comparable<Base>,Serializable {
     /**
-     * Lista de bases, capaz de ser llamada desde otras clases
-     */
+    * Una lista estática de objetos `Base`.
+    */
     public static ArrayList<Base> bases;
-    /**
-     * Nombre base
-     */
+    
     private String nombreBase;
-    /**
-     * Precio base
-     */
     private double precioBase; 
     /**
      * 
-     * @param nombreBase Nombre de la base del helado
-     * @param precioBase Precio de la base del helado
+     * @param nombreBase el nombre de la base
+     * @param precioBase el precio de la base
      */
     public Base(String nombreBase, double precioBase) {
         this.nombreBase = nombreBase;
@@ -35,60 +30,72 @@ public class Base implements Comparable<Base>,Serializable {
     }
 
     /**
+     * Obtiene el nombre de la base.
      * 
-     * @return Nombre de la base del helado 
+     * @return nombreBase de la base
      */
     public String getNombreBase() {
         return nombreBase;
     }
+    
     /**
-     * Cammbia el nombre de la base por nombreBase de ser necesario
-     * @param nombreBase Nuevo nombre de la base
+     * Establece el nombre de la base.
+     *
+     * @param nombreBase El nuevo nombre de la base.
      */
     public void setNombreBase(String nombreBase) {
         this.nombreBase = nombreBase;
     }
+    
     /**
+     * Obtiene el precio de la base
      * 
-     * @return Precio de la base 
+     * @return precioBase de la base
      */
     public double getPrecioBase() {
         return precioBase;
     }
+    
     /**
-     * Cammbia el precio de la base por precioBase de ser necesario
-     * @param precioBase Nuevo precio de la base
+     * Establece el precio de la base.
+     *
+     * @param precioBase El nuevo precio de la base.
      */
     public void setPrecioBase(double precioBase) {
         this.precioBase = precioBase;
     }
     
     /**
-     * Metodo para poder ordenar las bases por su nombre
-     * @param b La basecon la que se compara
-     * @return Orden de la base por su nombre 
-     */
+     * Compara esta base con otra base para determinar su orden acorde al orden alfabetico.
+     *
+     * @param b La base con la que se compara.
+     * @return Un valor negativo si esta base es menor que la base proporcionada,
+     *         un valor positivo si es mayor y 0 si son iguales.
+     */    
     @Override
     public int compareTo(Base b){
         return this.getNombreBase().compareTo(b.getNombreBase());
     }
-    
+
     /**
-     * 
-     * @param obj Base con la que se compara
-     * @return Booleano que confirma si las bases son iguales o no
-     */
+     * Compara esta base con otro objeto para determinar si son iguales por su nombre ignorando mayusculas y minusculas.
+     *
+     * @param obj El objeto con el que se compara.
+     * @return `true` si son iguales, `false` en caso contrario.
+     */    
     @Override
-public boolean equals(Object obj) {
-    if (this == obj) {
-        return true;
-    }
-    if (obj == null || getClass() != obj.getClass()) {
-        return false;
-    }
-    Base base = (Base) obj;
-    String nombreBase1 = this.getNombreBase().trim();
-    String nombreBase2 = base.getNombreBase().trim();
-    return nombreBase1.equalsIgnoreCase(nombreBase2);
-    } 
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        Base base = (Base) obj;
+        String nombreBase1 = this.getNombreBase().trim();
+        String nombreBase2 = base.getNombreBase().trim();
+        return nombreBase1.equalsIgnoreCase(nombreBase2);
+}
+
+
 }
