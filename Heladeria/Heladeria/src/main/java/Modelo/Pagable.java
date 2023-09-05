@@ -9,8 +9,8 @@ package Modelo;
  * @author tomas
  */
 public interface Pagable {
-    /**
-     * Metodo que genera una transaccion
+     /**
+     * Genera una transacción relacionada con el objeto que implementa esta interfaz, por ejemplo Pedido.
      */
     void generarTransaccion();
 }

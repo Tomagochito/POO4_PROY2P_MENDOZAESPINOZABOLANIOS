@@ -161,7 +161,7 @@ public class VentanaBasesController implements Initializable {
      * @param archivo Informacion de las bases
      * @param tboton  Sera el boton generado por cada base
      * @param l Sera el label del boton de cada base
-     * @param indice *
+     * @param indice el indice desde el cual es accede a un objeto tipo base
      */
     public void insertarDatosBoton_Precio(String archivo,ToggleButton tboton,Label l,int indice){
        try(FileInputStream fis = new FileInputStream (new File(ManejoArchivos.rutaImagenes+archivo) )){    
@@ -281,34 +281,40 @@ public class VentanaBasesController implements Initializable {
         
     
     }
-    /**
-     * Cambia el color de lo boton1
-     * @param event Evento al accionar el boton
-     */
+        /**
+     * Maneja el evento de cambio de color del primer botón.
+     * Deselecciona el botón anteriormente seleccionado si es necesario y actualiza la base seleccionada.
+     *
+     * @param event El evento de acción del primer botón.
+     */    
     @FXML
     private void cambiarColortb1(ActionEvent event) {
         
         DeseleccionarAnteriorSeleccion(event);
         ActualizarBaseElegida(event);
     }
+
     /**
-     * Cambia el color de lo boton2
-     * @param event Evento al accionar el boton
-     */
+     * Maneja el evento de cambio de color del segundo botón.
+     * Deselecciona el botón anteriormente seleccionado si es necesario y actualiza la base seleccionada.
+     *
+     * @param event El evento de acción del segundo botón.
+     */    
     @FXML
     private void cambiarColortb2(ActionEvent event) {
         DeseleccionarAnteriorSeleccion(event);
         ActualizarBaseElegida(event);
     }
+
     /**
-     * Cambia el color de lo boton3
-     * @param event Evento al accionar el boton
-     */
+     * Maneja el evento de cambio de color del tercer botón.
+     * Deselecciona el botón anteriormente seleccionado si es necesario y actualiza la base seleccionada.
+     *
+     * @param event El evento de acción del tercer botón.
+     */    
     @FXML
     private void cambiarColortb3(ActionEvent event) {
         DeseleccionarAnteriorSeleccion(event);
         ActualizarBaseElegida(event);
     }
-    
-    
-}
+}    
