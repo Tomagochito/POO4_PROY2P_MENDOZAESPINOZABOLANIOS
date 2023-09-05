@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
@@ -108,20 +108,12 @@ public class VentanaToppingsController implements Initializable {
      * Carga los toppings del archivo de toppings.
      */
     public void cargartoppings() {
-        try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "toppings.txt"))) {
-            String linea;
-            while ((linea = bf.readLine()) != null) {
-                String[] ltoppings = linea.split(",");
-                String nomtopping = ltoppings[0];
-                Double preciotopping = Double.parseDouble(ltoppings[1]);
-                Topping topping = new Topping(nomtopping, preciotopping);
+         ArrayList<Topping> listalineas = ManejoArchivos.listaToppings();
+                for (Topping toppings:listalineas){
+                Topping topping = new Topping(toppings.getNombreTopping(), toppings.getPrecioTopping());
                 listatoppings.add(topping);
             }
-        } catch (FileNotFoundException a) {
-            System.out.println("Ocurrio un error al leer el archivo de toppings");
-        } catch (IOException a2) {
-            System.out.println("Ocurrio un error inesperado en la lectura del archivo de toppings");
-        }
+    
     }
 
     /**

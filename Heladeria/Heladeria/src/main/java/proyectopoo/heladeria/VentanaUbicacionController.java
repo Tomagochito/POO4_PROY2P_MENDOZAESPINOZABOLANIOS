@@ -95,33 +95,24 @@ public class VentanaUbicacionController implements Initializable {
     public void CargarImagenes() {
         Thread t = new Thread(new Runnable() {
             public void run() {
-                try (BufferedReader bf = new BufferedReader(new FileReader(ManejoArchivos.rutaArchivos + "locales.txt", StandardCharsets.UTF_8))) {
-                    String linea;
-                    while ((linea = bf.readLine()) != null) {
-                        String[] datos = linea.split(",");
-                        Double posx = Double.parseDouble(datos[0]);
-                        Double posy = Double.parseDouble(datos[1]);
-                        String nomlocal = datos[2];
-                        String horarios = datos[3];
-                        Local local = new Local(posx, posy, nomlocal, horarios);
-                        Platform.runLater(() -> cargarLocales(local.getEjex(), local.getEjey(), local.getHorario(), local.getLugar()));
-                        //Se genera un numero aletario para la generacion del siiguiente local
-                        int tiempoaleatorio = (int) (Math.random() * 10) + 1;
-                        try {
-                            Thread.sleep(tiempoaleatorio * 1000);
-                        } catch (InterruptedException ex) {
-                            ex.printStackTrace();
-                        }
+                ArrayList<String> lineas = ManejoArchivos.leerArchivoTexto("locales.txt");
+
+                for (String linea : lineas) {
+                    String[] datos = linea.split(",");
+                    Double posx = Double.parseDouble(datos[0]);
+                    Double posy = Double.parseDouble(datos[1]);
+                    String nomlocal = datos[2];
+                    String horarios = datos[3];
+                    Local local = new Local(posx, posy, nomlocal, horarios);
+                    Platform.runLater(() -> cargarLocales(local.getEjex(), local.getEjey(), local.getHorario(), local.getLugar()));
+                    // Se genera un número aleatorio para la generación del siguiente local
+                    int tiempoaleatorio = (int) (Math.random() * 10) + 1;
+                    try {
+                        Thread.sleep(tiempoaleatorio * 1000);
+                    } catch (InterruptedException ex) {
+                        ex.printStackTrace();
                     }
-
-                } catch (FileNotFoundException ae) {
-                    System.out.println("Ocurrio un error");
-
-                } catch (IOException a) {
-                    System.out.println("Ocurrio un error inesperado");
-
                 }
-
             }
         });
         t.start();

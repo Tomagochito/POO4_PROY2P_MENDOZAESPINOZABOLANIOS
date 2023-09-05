@@ -1,3 +1,1 @@
- 9999, guillermomendoza, 3.5
-9998, guillermomendoza, 5.8
-9997, guillermomendoza, 3.8
+ 9999, nahinespinoza, 7.8

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.effect.SepiaTone?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="462.0" prefWidth="822.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="proyectopoo.heladeria.ResumenController">
+   <children>
+      <ImageView fx:id="imgvfondo" fitHeight="462.0" fitWidth="822.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="426.0" prefWidth="400.0" spacing="40.0">
+         <StackPane.margin>
+            <Insets bottom="50.0" left="40.0" right="440.0" top="50.0" />
+         </StackPane.margin>
+         <children>
+            <Label text="Tu Pedido" textFill="#8f4da3">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <ListView fx:id="listview" prefHeight="317.0" prefWidth="400.0" />
+            <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Valor a pagar:" textFill="#e85ea1">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="total" alignment="BASELINE_LEFT" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button fx:id="btneliminar" mnemonicParsing="false" onAction="#eliminar" text="Eliminar">
+         <StackPane.margin>
+            <Insets bottom="245.0" left="90.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <SepiaTone level="0.23" />
+         </effect>
+      </Button>
+      <Button fx:id="btncancelar" mnemonicParsing="false" onAction="#cancelar" text="Cancelar">
+         <StackPane.margin>
+            <Insets left="300.0" top="400.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <SepiaTone level="0.23" />
+         </effect>
+      </Button>
+      <Button fx:id="btnconfirmar" mnemonicParsing="false" onAction="#confirmar" text="Confirmar">
+         <StackPane.margin>
+            <Insets left="103.0" top="400.0" />
+         </StackPane.margin>
+         <font>
+            <Font size="15.0" />
+         </font>
+         <effect>
+            <SepiaTone level="0.23" />
+         </effect>
+      </Button>
+      <ImageView fx:id="imgvgif" fitHeight="267.0" fitWidth="271.0" pickOnBounds="true" preserveRatio="true">
+         <StackPane.margin>
+            <Insets left="500.0" />
+         </StackPane.margin>
+      </ImageView>
+   </children>
+</StackPane>
